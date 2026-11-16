@@ -88,6 +88,7 @@ Runs made with different prompt wording must not be pooled with these.
 | `run.py` | Command line: `check`, `trial`, `panel`, `all`. |
 | `report.py` | Builds the tables and Figure 1 from `runs/*.jsonl`. |
 | `code_reasoning.py` | Rule-based coding of four reasoning codes (see below). |
+| `code_diagnose.py` | Rule-based coding of the DIAGNOSE replies: names the flaw and its direction. |
 | `human.py` | Brief packs and import for human participants. |
 | `runs/` | Raw transcripts, one JSON object per conversation. |
 | `results/` | `summary.md`, `figure1.png` and the sheets for hand coding. |
@@ -101,8 +102,8 @@ Runs made with different prompt wording must not be pooled with these.
 |---|---|
 | Figure 1 | `results/figure1.png` |
 | Tables 4 to 7 and Table A1 | `results/summary.md` |
-| Table A1, DIAGNOSE row | hand-coded from `results/diagnose_to_code.csv` |
-| Table A2, reasoning codes | hand-coded from `results/to_code.csv` |
+| Table A1, DIAGNOSE row | `results/diagnose_codes.csv`, written by `code_diagnose.py` (rule-based) |
+| Table A2, reasoning codes | `results/reasoning_codes_claude.csv`, written by `code_reasoning.py` (rule-based, four of six codes) |
 
 ## Ground truth
 
@@ -125,8 +126,7 @@ carried through, trade-off) are meant to be coded by people from `results/to_cod
 
 `results/reasoning_codes_claude.csv` is a separate, rule-based pass over four of the six codes.
 It was written and run by Claude, an LLM, and is not human coding. The rules are in the
-docstring of `code_reasoning.py`. The file includes values Claude changed after reading the cases the rules
-flagged; `python code_reasoning.py --rules-only` writes the rules' output without them.
+docstring of `code_reasoning.py`.
 
 ## Human dry run
 

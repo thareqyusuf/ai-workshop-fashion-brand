@@ -1,15 +1,12 @@
-"""Rule-based coding of four of the six reasoning codes, written and run by Claude (an LLM), not by human coders.
+"""Rule-based coding of four of the six reasoning codes. A script applies the rules below and nobody reads the
+replies, so this is not human coding and no value comes from a judgement call.
 
   python code_reasoning.py                 # reads results/to_code.csv, writes results/reasoning_codes_claude.csv
-  python code_reasoning.py --rules-only    # the rules alone, no adjudication: writes results/reasoning_codes_rules_only.csv
   python code_reasoning.py --review        # also print the cases the rules flagged
 
-LLM use. Read this with the LLM Usage Statement in the paper.
-  The rules     are code, drafted with Claude like the rest of the repository. What they print is a script's
-                output, not a language model's assertion. --rules-only gives exactly that.
-  The OVERRIDES at the bottom of this file are a language model's judgement: Claude read the text a rule had
-                flagged and changed the code. The default run applies them, and Table A2 of the paper reports
-                the default run. The paper has to say so wherever it reports those numbers.
+The output is the rules' output and nothing else. The rules are mechanical, so they miss some cases: a derived
+figure that a rule does not recognise as arithmetic on the brief counts as not traceable, and a mention of lost
+sales counts toward trade-off even when it describes last year.
 
 Codes (definitions in Table A3 of the paper) and the rule used for each:
   wear_data_used        conditions 2-6. The evidence table has a row whose figure cell holds the logged wear figure,
@@ -33,9 +30,8 @@ import prompts as P
 
 csv.field_size_limit(10 ** 9)
 ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
-RULES_ONLY = "--rules-only" in sys.argv
 SRC = ARGS[0] if ARGS else "results/to_code.csv"
-OUT = ARGS[1] if len(ARGS) > 1 else ("results/reasoning_codes_rules_only.csv" if RULES_ONLY else "results/reasoning_codes_claude.csv")
+OUT = ARGS[1] if len(ARGS) > 1 else "results/reasoning_codes_claude.csv"
 LOGGED = {2: "29.8", 3: "39.1", 4: "22.9", 5: "29.8", 6: "29.8"}
 FLAW = {3: r"favourit|favorit|self-?select|selection|selective|4 of (their |the )?10|four of (their |the )?ten|4 in 10|subset",
         4: r"stopped logging|stop(s)? logging|drop-?off|dropp?ed out|attrition|lapsed|before week 6|truncat|censor|missing (logs|wears|data)|incomplete",
@@ -124,14 +120,6 @@ def code(row):
 def main():
     rows = list(csv.DictReader(open(SRC, encoding="utf-8")))
     coded = [code(r) for r in rows]
-    changed = 0
-    if not RULES_ONLY:
-        for r in coded:                               # adjudications made by Claude after reading the flagged text
-            for k, v in OVERRIDES.get((r["model"], r["key"]), {}).items():
-                changed += int(r[k] != v)
-                r[k] = v
-    print("Rules only, no adjudication." if RULES_ONLY else
-          f"Rules, with {changed} values changed by Claude's adjudication (an LLM). --rules-only gives the rules alone.")
     cols = ["model", "key", "condition", "traceable", "reliable_information", "wear_data_used", "trade_off"]
     with open(OUT, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore"); w.writeheader(); w.writerows(coded)
@@ -142,19 +130,6 @@ def main():
             print(f"  {k:22s} {sum(v)}/{len(v)}")
     return coded
 
-
-# Adjudications made by Claude after reading the text the rules flagged. Everything else is the rule's output.
-_C, _G = "claude-sonnet-5-5", "gpt-6.1-sol"
-_derived = {"traceable": 1}      # flagged numbers are arithmetic on brief numbers (percentages, 283 x 12, order cost) or line references
-_lastyear = {"trade_off": 0}     # "lost sales/demand" describes last year's stockout (or "missing demand probabilities"), not a cost of this buy
-OVERRIDES = {
-    **{(_C, f"decide-{k}"): _derived for k in ("c3-r1", "c6-r1", "c5-r1", "c2-r2", "c3-r2", "c6-r2", "c5-r2", "c2-r3", "c6-r3",
-                                               "c5-r3", "c5-r4", "c6-r5", "c5-r5")},
-    **{(_G, f"decide-{k}"): _derived for k in ("c1-r1", "c1-r2", "c1-r4")},
-    # claude c4-r4 and c4-r5 stay 0: the figure column gives a "£22.50 net" clearance price, which needs a VAT rate the brief does not state
-    (_C, "decide-c6-r5"): {**_derived, **_lastyear},
-    (_G, "decide-c5-r1"): _lastyear, (_G, "decide-c6-r2"): _lastyear, (_G, "decide-c1-r4"): {**_derived, **_lastyear}, (_G, "decide-c6-r5"): _lastyear,
-}
 
 if __name__ == "__main__":
     coded = main()
