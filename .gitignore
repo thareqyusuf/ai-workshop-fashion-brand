@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+runs/*mock*
+runs/trial_*
+runs/panel_trial_*

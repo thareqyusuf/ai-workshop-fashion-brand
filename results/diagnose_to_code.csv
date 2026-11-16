@@ -1,0 +1,1307 @@
+model,key,condition,names_flaw,right_direction,rough_size,reply
+claude-sonnet-5-5,diagnose-c3-r1,3,,,,"# Which figures are likely to be biased
+
+**Short answer:** the wear data, and the 10% uplift built on it, probably overstate demand. The other figures are broadly fine.
+
+## 1. Wear data (39.1 vs 25): likely overstated
+
+- **Selection bias.** Users logged only about 4 of their 10 knitwear items, mostly favourites. Favourites get worn far more than the rest of a wardrobe, so 39.1 is likely well above the true average for all owners. A reasonable guess is 20–35% too high, which would put the real figure around 29–33 wears.
+- **The 25 benchmark has the same problem.** It is an average over logged items, which are also skewed towards favourites. The true knitwear average is probably lower than 25, perhaps 18–22.
+- **The ratio is only partly protected.** Both numbers are inflated, so the 56% gap (39.1 ÷ 25) is less distorted than either number alone. It is still unreliable, because a jumper that is a favourite is more likely to be logged than an average one.
+- **Unrepresentative sample.** App users are more engaged and more fashion-conscious than the typical buyer. Each logged item also has an unknown number of owners behind it, so some of the averages may rest on small samples.
+- **False precision.** ""39.1"" implies accuracy the data cannot support.
+
+## 2. The 10% uplift and the 3,700 forecast: likely overstated
+
+- The 10% appears to come from the wear data: 56% more wears × (2% ÷ 10%) ≈ 11%. If so, it inherits the bias above.
+- **Correlation, not causation.** A core crew-neck is worn often because of what it is, not because wearing it drives sales.
+- **Likely double-counting.** Last year's 3,400 full-price sales already reflect how wearable the style is. Adding an uplift for the same trait counts it twice.
+- **Rough size of the error.** A realistic uplift is perhaps 0–5%, not 10%. Full-price demand would then be about 3,400–3,570, not 3,700. That is an overstatement of roughly 130–300 units, or 4–8%.
+
+## 3. Other figures
+
+- **3,400 full-price sales** is a sound base. 600 units were marked down, so stock was not the constraint and demand was not censored. It could be slightly generous if some full-price sales were helped by promotions, but the information given does not say.
+- **Stock in hand (150)** may overstate sellable units by a few percent (shrinkage, damage, mis-counts). That is minor, about 3–5 units.
+- **Markdown clearance of 300 units at 40% off** is an assumption, not a certainty. Last year 600 cleared at that price, so it is plausible, but it is not guaranteed.
+- **Unit costs and the 14-week lead time** are supplier quotes, so they are reliable. The risk is lateness, which would cost full-price selling weeks.
+
+## Implication for the order
+
+I would plan on demand of roughly 3,400–3,600 units, with 3,500 as a central case, rather than 3,700. After allowing for the 150 in stock, the net need is about 3,350. This sits close to the 3,000 and 4,000 price breaks, so the choice between them depends on this correction. I would test it against the unit costs and the markdown and write-off economics before committing."
+claude-sonnet-5-5,diagnose-c4-r1,4,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. Forecast of 3,700 units: overstated by roughly 300 units (about 8-10%)
+- **The arithmetic is unclear.** Last year's full-price sales were 3,400, and 3,400 +10% is 3,740. The 3,700 figure also doesn't match a 10% uplift on the 4,000 bought (4,400). The base should be full-price sales, not units bought, since 600 units were left over and had to be marked down.
+- **The uplift has no support.** The wear data is the only evidence offered, and it points the wrong way. At 22.9 wears against a 25 average, this jumper is about 8% below the knitwear average, not above it. The brand's own rule (10% more wears gives about 2% more sales) implies about -1.7%, so roughly 3,340 units.
+- A defensible base case is **about 3,300-3,400**, not 3,700.
+
+## 2. Wear figure of 22.9: understated in absolute terms, probably by a lot
+- 40% of users stopped logging before week 6, so their garments show almost no wears for the rest of the year. That is logging attrition, not real non-wearing.
+- If the other 60% account for nearly all logged wears, the true rate could be nearer 35-38 per year than 22.9. That's an understatement of up to about 35-40%. The exact size is unknown.
+- The 25 knitwear benchmark probably has the same bias, so the comparison may partly cancel out. That is only true if attrition is similar across garments, and we don't know that.
+- Result: the true gap to the benchmark could be anywhere from about -8% to positive. The signal is too weak to justify either a cut or a rise in the forecast.
+- Other biases:
+  - App users are not typical buyers; they are likely more engaged and fashion-minded.
+  - A sample of 600 is small.
+  - Wear frequency and next-season sales are only loosely related, and the link is correlation, not causation.
+
+## 3. Retail price of £45: overstates revenue per unit by about 17%
+- UK shelf prices include 20% VAT, so net revenue is about **£37.50**, not £45 (unless the £45 is already ex-VAT).
+- The markdown price is £27 incl. VAT, about **£22.50** net.
+- If any sales go through wholesale or marketplaces, net revenue is lower still.
+- Online returns could also mean last year's ""sold"" figure overstates net sales. I don't know the channel mix.
+
+## 4. Unit costs (£13.20-£15.20): likely understate true landed cost
+- These look like supplier prices. Freight, duty, and handling typically add several percent, perhaps 5-10%, unless they are already included.
+- The prices below 3,000 units aren't given, so only the three price breaks are known.
+
+## 5. Markdown clearance: last year doesn't match this year's assumption
+- Last year, 600 units cleared at 40% off. This year only 300 are assumed to clear, with the rest written off.
+- That is a deliberate change, but it makes overbuying much more expensive than last year's experience suggests. Any unit beyond demand plus 300 loses its full cost.
+
+## What this means for the decision
+- Centre demand on **about 3,400 (range perhaps 3,000-3,800)**, not 3,700.
+- Use net-of-VAT margins: about £22 per unit at full price, and only about £7-9 on markdown units.
+- Net need before the order is roughly 3,400 - 150 = 3,250 units. The price-break and write-off trade-off should then be run on that basis, not on 3,550.
+- The £70,000 budget is not binding. 5,000 units at £13.20 costs £66,000, and the real constraint is overbuying."
+claude-sonnet-5-5,diagnose-c5-r1,5,,,,"# Which figures likely overstate or understate reality
+
+## Overstated
+
+**1. The +10% uplift (and so the 3,700 forecast)**
+- The wear data doesn't support 10%. 29.8 vs 25 is 19% more wear. Using your brand's own ratio (10% more wear gives about 2% more sales), that implies about **+4%**, not +10%.
+- Even that +4% is probably too high, because the wear figure is inflated:
+  - **Selection bias.** People who log every knitwear item in an app are keener on clothes than average.
+  - **Owners vs all items.** Owners of this jumper are compared with the average knitwear item. A plain crew-neck is naturally worn more than occasional or statement knits, so this is not like for like.
+  - **Survivorship.** Only people who still own and like the jumper are counted, not those who stopped wearing it.
+  - **Short window.** 12 weeks of logging scaled to a year inflates wears if those weeks are peak knitwear season. This cancels out only if the 25 benchmark was annualised the same way.
+  - **Small sample.** 600 users probably includes only a few dozen owners of this jumper, so a 19% gap could be noise.
+- My estimate is that the true uplift is **0 to 4%**, so the +10% is overstated by roughly **6 to 10 points** (about 200 to 350 units on the base).
+
+**2. The £45 price, if it includes VAT**
+- UK shelf prices include 20% VAT, so net revenue is about **£37.50**, and the 40%-off price is about £22.50, not £27.
+- If profit is calculated on £45, revenue per unit is overstated by about 20% and margin by far more. Against a £14 cost, the gross margin falls from about 69% to about 63%, and every unit that clears at 40% off is worth roughly £8 net of VAT above cost, not £13.
+
+**3. Stock in hand of 150**
+- It is likely overstated as usable stock. Last year's leftovers were XS and XXL only, so if these are the same, they won't serve core-size demand. Shrinkage, returns and damaged units also reduce it.
+- Check the size split. Usable stock could be well below 150, possibly close to 0 for core sizes.
+
+## Understated
+
+**4. Last year's demand (the base for the forecast)**
+- Last year sold out: 3,396 at full price plus 600 clearance units is about 4,000, all of it. Sales are therefore capped by supply, and true demand was at least that.
+- The 600 left at week 13 were only XS and XXL, so the core sizes sold out before or during week 12. Lost sales in the late full-price weeks mean the 283 per week **understates** true full-price demand. I'd guess by **5 to 15%**, but this is a guess and needs size-level sell-through to confirm.
+
+## Misleading rather than directionally wrong
+
+**5. The forecast arithmetic is inconsistent.**
+- 4,000 + 10% is 4,400, not 3,700. 3,700 is about 3,396 (full-price units) + 9%.
+- So the forecast is quietly full-price-only, which is arguably the right base, but the label is wrong. The two errors (base understated, uplift overstated) partly offset, so 3,700 may be roughly right by accident, with a wide range of about 3,400 to 4,200.
+
+**6. The 75 units per week at 40% off.**
+- This is the rate for broken sizes (XS and XXL) only, so it doesn't show how a full size range would clear at markdown.
+- It is also based on only 8 weeks.
+- The 300-unit clearance cap is the real limit.
+
+**7. Weekly averages.**
+- 283 per week hides the seasonal shape (knitwear peaks with cold weather). That matters for a 14-week lead time and for when the stock lands.
+
+## Net view
+- The forecast is probably not far off in total, but its justification is weak.
+- Revenue per unit (the VAT point) and the usable opening stock are the two biggest things to check before sizing the order.
+- Because stockouts cost full margin while overstock costs only the markdown loss plus write-off beyond 300 units, I'd test the order against a range of demand (about 3,400 to 4,200), not a single 3,700."
+claude-sonnet-5-5,diagnose-c3-r2,3,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. The wear data overstates demand growth
+
+**Selection bias (overstates).** Users logged only about 4 of their 10 knitwear items, mostly favourites. Favourites get worn more, so both the 39.1 and the 25 are inflated.
+- The true knitwear average is probably nearer 15–20 wears a year, not 25.
+- The true figure for this jumper across all owners is probably nearer 28–33, not 39.1.
+- Because both numbers are inflated, the ratio is distorted less than either figure. The headline 56% gap (39.1 vs 25) is probably 30–50% in reality, and could be lower still if owners who logged this jumper are especially enthusiastic.
+
+**Weak translation to sales (overstates).**
+- Taken at face value, +56% wears at 2% sales per 10% gives about +11%. That is almost exactly the forecast's +10%, so the forecast is probably leaning on this data.
+- The rule is a historical correlation, not a proven cause. It is being extrapolated well beyond the typical range of 10% steps.
+- It is also partly double-counting. Last year's sales already reflect how well liked the jumper is.
+- A realistic uplift is perhaps 0–5%, not 10%.
+
+**Sample size (adds uncertainty).** ""600 users"" is not the number of owners of this jumper. The owner subgroup is probably much smaller, so the 39.1 has wide error bars. App users are also not representative of all buyers.
+
+## 2. The demand forecast of 3,700 is probably slightly overstated
+- With a 0–5% uplift on 3,400, a central estimate is about 3,400–3,570, say ~3,500.
+- Last year's 3,400 full-price sales are not stock-out-constrained, because 600 units were left over. They are therefore a fair base, though weather and promotions in a single year add noise.
+- The forecast is a single point. Realistic uncertainty is about ±10–15%, and the decision should use a range.
+- With a 14-week lead time, some demand will be missed if stock lands after the season starts. That is a further downside to sales this season.
+
+## 3. The £45 price overstates revenue per unit
+- If £45 includes VAT (normal for UK retail), net revenue is **£37.50**, about 17% lower.
+- The 40% markdown price is £27 inc VAT, so **£22.50** net.
+- If any sales go through wholesale or marketplaces, or online returns are 15–25%, realised revenue per unit is lower still.
+- Unit margin is therefore about £22 at best, not £30. This shifts the optimal order downward.
+
+## 4. Unit costs probably understate true cost
+The quoted £13.20–£15.20 is likely ex-freight, duty and handling. Landed cost is probably 5–10% higher, roughly £0.70–£1.50 per unit.
+
+## 5. Stock in hand (150) may be slightly overstated
+Stock records usually overstate sellable units by a few percent, because of damage, misplaced stock and shrinkage. The effect is small, perhaps 5–15 units.
+
+## 6. Last year's markdown experience does not carry over
+Last year 600 units cleared at 40% off. This year only 300 will clear and the rest are written off. Last year's leftover experience understates this year's downside risk from over-ordering.
+
+## Net effect
+- Expected demand is lower than 3,700, probably ~3,500 with a wide range.
+- Margin per full-price unit is lower than it looks, and landed cost is higher.
+- Overbuying is more costly than the raw numbers suggest.
+
+All of this pushes toward a more cautious order than the headline forecast implies. I would rerun the order-quantity choice (3,000 vs 4,000 vs 5,000, with 1,500 as the minimum) on the corrected numbers and a demand distribution before committing."
+claude-sonnet-5-5,diagnose-c4-r2,4,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. The +10% growth in the forecast probably overstates demand
+- The forecast of 3,700 is about 3,400 × 1.1, so it grows from last year's full-price sales.
+- Nothing in the data supports that growth. The wear data points the other way.
+- Owners wear this jumper 22.9 times a year against a 25 average, which is about 8% below average, not above.
+- Using the brand's own rule (10% more wear gives 2% more sales), 8% less wear implies about 1.7% lower sales, roughly 3,340 units, not 3,700.
+- The overstatement is about 350 units, or roughly 10%.
+- The brand rule is weak evidence anyway. It is a correlation, and a 2% effect is small next to normal year-to-year noise. The honest reading is ""flat, give or take"", not +10%.
+
+## 2. The absolute wear figure (22.9) is understated, probably by 30–45%
+- 40% of users stopped logging before week 6, and their garments show zero wears afterwards. These are logging dropouts, not real non-wearers.
+- If the active 60% log at rate r and the dropouts log only about 3–6 weeks' worth, the average is about 0.62–0.65 × r.
+- That puts the true rate at roughly 35–37 wears a year, not 22.9.
+
+**But this does not rescue the forecast.**
+- The 25-wear knitwear benchmark comes from the same app, so it is probably biased in the same direction.
+- The ratio (about 0.92) is therefore still roughly valid, provided dropout rates are similar across garment types. That is an assumption, not something we know.
+- If dropouts are more common among owners of basic items like this one, the true ratio is somewhat better than 0.92. The data can't tell us.
+
+## 3. The wear sample is unrepresentative and imprecise
+- App users are self-selected, probably more fashion-engaged and younger than the average buyer.
+- Sampling error on 600 users is modest, perhaps ±1 wear. The bias matters far more than the noise.
+
+## 4. Last year's full-price figure of 3,400 is probably slightly understated
+- Everything was sold (3,400 + 600 = 4,000), so sales were not cut short by a stockout. That is good.
+- Some of the 600 markdown units might have sold at full price if the markdown had come later. The effect is probably small, perhaps 0–5%.
+- One year of data also says nothing about volatility.
+
+## 5. Last year's markdown does not carry over
+- 600 units cleared at 40% off last year, but this year only 300 can clear and the rest is written off.
+- Last year's clearance experience therefore overstates the salvage value of any excess this year.
+
+## Implications for the decision
+- Treat 3,700 as an upper case. A central demand estimate is about 3,300–3,400 full-price units, with a wide range.
+- Net of the 150 units in stock, the buy is for about 3,200 units, not 3,550.
+- The order sizing should weigh the following:
+  - the price breaks (£15.20, £14.00 and £13.20),
+  - the 300-unit cap on clearance,
+  - the roughly £30 margin lost per unit of unmet demand, against a £15 loss per unit left over.
+
+I would run the order-quantity calculation on a demand distribution centred near 3,350 rather than on 3,700."
+claude-sonnet-5-5,diagnose-c5-r2,5,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. Last year's full-price sales (3,400, 283/week): **understated demand**, roughly +5% to +15%
+- The 600 left at week 13 were only XS and XXL. So S to XL sold out, and some of the 12 full-price weeks were lost to broken size runs. 283/week is what we could supply, not what customers wanted.
+- Lost sales are unobserved, so the size is a judgement. A size-level weekly sell-through, showing when each core size ran out, would pin it down. If S to XL ran out in weeks 9-10 rather than 12, the gap is at the high end.
+- The 75/week markdown rate is also unrepresentative. It comes from two extreme sizes at 40% off, so it says little about demand for core sizes or about clearing a size-balanced leftover.
+- The 600 units of XS and XXL also show the size curve was wrong. Some of the 4,000 was misallocated, so the total buy and the size split need to be thought about separately.
+
+## 2. The 10% uplift in the forecast: **overstated**
+- The 3,700 is roughly 3,400 × 1.09, so it is built from full-price sales plus about 10%, not from the 4,000 bought.
+- The wear data does not support 10%. 29.8 / 25 is 19% more wear. At the brand's rule of 2% sales per 10% wear, that gives about **+4%**, not +10%.
+- Even +4% is probably too high, for these reasons:
+  - **Annualising:** 12 weeks of logging extrapolated to a year likely overstates wears, since knitwear is worn most in cold weeks. The ratio is less affected than the absolute number.
+  - **Self-selection:** wardrobe-app users are more engaged than average, and people who log a recent purchase wear it more than older items. Both inflate owners' wears relative to the average item.
+  - **Sample size:** 600 users is the whole panel, but owners of this jumper may be only a few dozen. The 29.8 could be within noise of 25.
+  - **Causality:** the brand-history rule is a correlation. It is being applied to a 19% gap, outside the 10% case it was observed on, and the effect may already be in last year's sales.
+- A realistic uplift is **0% to 4%**.
+
+The forecast errors partly offset each other: the base is too low by about 5-15% and the uplift too high by about 6 points. Net, 3,700 is probably roughly right, perhaps 3,600-4,000 of full-price demand, but only by luck. It also carries the size-mix problem from point 1.
+
+## 3. Stock in hand of 150: **probably overstated**
+- 3,396 + 600 = 3,996 of 4,000 sold, so about 4 units should be left, not 150.
+- The 150 may be returns, stock in other channels, or a miscount. If it is XS/XXL leftovers, it is not usable against core-size demand. It needs a physical count by size before it reduces the order.
+
+## 4. Price of £45: **overstates revenue** by about 17%
+- UK retail prices include 20% VAT, so net revenue is £37.50 full price and £22.50 at 40% off (£27 gross). If any sales are wholesale, it is lower again.
+- Margin per unit drops, which changes the break-even between ordering more and risking a markdown.
+
+## 5. Unit cost and budget: **possibly understated cost**
+- It is unclear whether £15.20 / £14.00 / £13.20 includes freight, duty and packaging. If not, landed cost is higher, and the markdown margin (£22.50 net against about £14) is thinner than it looks.
+- The £70k budget is not binding. 5,000 × £13.20 = £66,000.
+
+## What to fix before ordering
+1. Size-level weekly sales and stock-out dates, to estimate unconstrained demand.
+2. A physical stock count by size.
+3. The number of app owners of this jumper, with a confidence interval on the wear figure.
+4. Net-of-VAT revenue and landed cost.
+5. A planning range for full-price demand of about 3,500-4,000 rather than a single 3,700. Use a corrected size curve, and test the 3,000 / 4,000 / 5,000 price breaks against that range."
+claude-sonnet-5-5,diagnose-c3-r3,3,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. The wear data overstates demand (the biggest issue)
+
+- **Selection bias.** Users logged only about 4 of their 10 knitwear items, mostly favourites. The 39.1 wears is therefore the wear rate of well-loved jumpers, not of all jumpers sold.
+- **Self-selected users.** People who use a wardrobe app and log their wears are more engaged than the typical customer.
+- **The comparison is partly distorted.** If the 25-wear knitwear average comes from the same logged items, it is inflated too, so the ratio is less biased than the raw numbers. But the gap is still 39.1 / 25 = +56%, and I would not trust it at face value. My rough guess is that the true gap is 20–35%.
+- **The brand rule is being stretched.** The rule is ""+10% wears gives about +2% sales."" A 56% gap implies about +11% sales, which matches the +10% forecast. The rule was probably calibrated on much smaller gaps, so applying it at 56% is extrapolation. Wear rate also reflects satisfaction among existing owners, and that does not necessarily bring in new buyers.
+- **Corrected uplift.** A 20–35% gap implies roughly +4–7%, and with the extrapolation risk the realistic range is about 0–7%, not 11%.
+- **Sample noise.** 600 users is a minor issue compared with the bias.
+
+**Effect on the forecast:** 3,700 is probably overstated by about 100–350 units. A more defensible central estimate is roughly 3,500, with a plausible range of 3,300–3,700.
+
+## 2. The £45 price overstates revenue per unit
+
+- If £45 is the VAT-inclusive shelf price, net revenue is **£37.50**, which is about 17% lower.
+- The markdown price of £27 is **£22.50** ex VAT.
+- Returns, promo codes and payment fees reduce it further. I would assume realised revenue per unit is 5–10% below £37.50 unless finance says otherwise.
+- The unit costs of £13.20–15.20 probably exclude freight, duty and handling. If so, true landed cost is understated, perhaps by 3–8%.
+
+## 3. Last year's sales base is roughly right but needs care
+
+- Full-price sales of 3,400 are a better baseline than the 4,000 bought. The 600 markdowns were excess supply, not full-price demand.
+- The +10% forecast of 3,700 is slightly below 3,400 × 1.10 = 3,740, which is immaterial.
+- Check whether the 3,400 is gross or net of returns, and whether any of it was helped by promotions. If so, underlying demand is overstated by a few percent.
+- Sales were not stock-constrained, since stock was left over, so there is no hidden lost demand.
+
+## 4. Stock in hand and timing
+
+- The 150 units may overstate sellable stock if they include damaged items, returns not yet processed, or units already allocated. The effect is small, probably 0–10%.
+- The 14-week lead time understates risk. Any delay means lost full-price selling weeks, and the forecast assumes a full season of availability.
+
+## 5. Markdown assumptions probably flatter the downside
+
+- The 300 units cleared at 40% off is ""up to."" Last year 600 cleared at that discount, so 300 is plausible, but the clearance price is only £22.50 ex VAT.
+- Anything beyond 300 units is written off at zero recovery.
+
+## Implication for the decision
+
+- Plan on full-price demand of about 3,300–3,700 (central about 3,500), not 3,700 as a point estimate.
+- Use £37.50 or less as the revenue per unit, and a landed cost above the quoted unit cost.
+- Test the order quantity (3,000, 4,000 or 5,000) against that demand range. The £70k budget is not binding, since 5,000 units cost £66,000.
+- Compare the cost of overbuying with the cost of underbuying:
+  - Each unit overbought beyond the 300 clearance units loses its full cost, about £13–14.
+  - Each unit of lost full-price demand loses roughly £22–24 of margin ex VAT.
+  - Underbuying is therefore costlier per unit than overbuying, but the supplier price tiers and the 300-unit clearance cap limit how far that favours buying more.
+
+I would rerun the profit calculation across the 3,300–3,700 range before committing."
+claude-sonnet-5-5,diagnose-c4-r3,4,,,,"# Audit of the figures before any decision
+
+## 1. Likely to overstate
+
+**a) Retail price £45 (overstates revenue per unit by about 17%)**
+- UK shelf prices include 20% VAT, so net revenue is about **£37.50** per full-price unit, not £45.
+- The markdown price is £27 gross, or about **£22.50** net.
+- Unit cost is ex-VAT, so using £45 against £15.20 overstates the margin. The gross margin is about £22.30 per unit, not £29.80.
+- Returns and payment fees would reduce it further if they apply.
+
+**b) Forecast of 3,700 (overstates by about 8–11%, roughly 300–360 units)**
+- The +10% uplift has no support in the data given.
+- The wear data points the other way. Owners log 22.9 wears against a 25 average, which is **8.4% below** average, not above.
+- Using the brand's own rule of thumb (10% more wear → 2% more sales), this jumper implies about **−1.7%**, which is roughly 3,340 units.
+- At best, flat on last year's full-price sales (about 3,400) is defensible.
+- So the forecast should be about **3,350–3,400, not 3,700**.
+
+**c) Clearance capacity of 300 units (probably optimistic)**
+- Last year it took 600 units at 40% off to clear the surplus. The ""up to 300"" assumption is a different regime from last year's, so check where it comes from.
+- Anything beyond 300 is written off at £0. Overbuying is therefore more expensive than it looks if the clearance channel is capped.
+
+## 2. Likely to understate
+
+**Wear figure of 22.9 per year (understates true wears by about 35%)**
+- 40% of users stopped logging before week 6, so their garments show zero wears after that point. That is missing data, not real non-wearing.
+- If those users logged about 6 of 52 weeks (about 12% of their true wears), logged wears are about 0.6 + 0.4×0.12 ≈ 65% of the truth.
+- True wears are then about 22.9 / 0.65 ≈ **35 per year**.
+- The same bias probably affects the 25 knitwear average, which would be about 38 in reality.
+- The ratio of about 0.92 (8% below average) is therefore probably **roughly unchanged**, and the conclusion in 1b still holds. The absolute levels are wrong, and so is any claim that the jumper is ""worn 23 times"".
+- This only works if the dropout rate is similar across styles. If this jumper's owners churn more, it is understated relative to the benchmark. If the 25 benchmark comes from a different, better-logged sample, the comparison is invalid.
+
+## 3. Figures that are fine but weak
+
+- **Last year's 3,400 full-price sales:**
+  - This is a reasonable proxy for full-price demand. Stock was not exhausted before markdown, so the data is not censored by a stockout.
+  - It may slightly understate demand if markdowns pulled forward buyers who would have paid full price.
+- **The wear-to-sales rule (10% wear → 2% sales):**
+  - It is a correlation across styles, not a causal effect, and the effect is tiny.
+  - Even if the wear data were perfect, it moves the forecast by under 2%.
+  - That is much smaller than the normal forecast error, which is probably ±10–15%.
+- **Sample of 600 app users:**
+  - App users are self-selected (probably younger and more fashion-engaged) and may not represent buyers.
+  - With 40% dropout, the effective sample for full-year wear is closer to 360.
+- **Stock in hand of 150:**
+  - Confirm it is sellable (sizes, condition, returns) and arrives in time for the season.
+- **Budget of £70,000:**
+  - It does not bind. Even 5,000 units cost £66,000.
+  - The constraint that matters is demand and the capped clearance, not cash.
+- **Lead time of 14 weeks:**
+  - Confirm it lands before the selling window.
+  - This is a single buy with no chance to reorder.
+
+## Net effect on the plan
+
+| Input | Stated | Better estimate |
+|---|---|---|
+| Net revenue per unit (full price) | £45 | about £37.50 |
+| Net revenue per unit (markdown) | £27 | about £22.50 |
+| Full-price demand | 3,700 | about 3,350–3,400 (central) |
+| Net need after 150 in stock | 3,550 | about 3,200–3,250 |
+| Wear rate | 22.9 | about 35 (the ratio to the benchmark is what matters) |
+
+The raw numbers push toward over-ordering. A buy sized to the 3,700 forecast, such as the 4,000 tier, risks about 500–800 surplus units. Only 300 of those would clear, and the rest would be written off.
+
+Once you confirm the VAT treatment and the clearance cap, the next step is a newsvendor-style comparison of the 3,000, 4,000 and 5,000 price tiers, plus any quantity in between at an interpolated price, over a demand distribution centred near 3,350–3,400."
+claude-sonnet-5-5,diagnose-c5-r3,5,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. Last year's full-price sales (283/wk, ~3,400 units): **understated**
+- 283 × 12 ≈ 3,400 units, and 4,000 − 3,400 ≈ 600, which matches the leftover stock. So sales were limited by stock, not demand.
+- The 600 units left at week 13 were only XS and XXL, so every core size had sold out before or during that window. Sales after each size ran out were lost, and the 283 average hides this.
+- The leftover extreme sizes also sold out at 40% off (600 units by week 20). That tells you the markdown clearance price was low enough to clear them, not what demand was at full price.
+- I'd estimate true unconstrained full-price demand was **5-15% higher**, roughly 3,600-3,900 units. This is an estimate; weekly sales by size and the stock-out dates would pin it down.
+
+## 2. The +10% uplift: **overstated**
+- The wear data doesn't support +10%. 29.8 vs 25 is **19% above average**. Using the brand's own rule (10% more wears ≈ 2% more sales), that gives about **+4%**, not +10%.
+- Even that +4% is probably generous, for four reasons:
+  - **Selection bias.** App users are more engaged with their wardrobes than typical customers.
+  - **Owners only.** The wear figure comes from people who already own the jumper and probably like it. It says little about new buyers.
+  - **Small subsample.** Only a fraction of the 600 users will own this jumper. The relevant n may be a few dozen, so the 29.8 has wide error bars.
+  - **Weak link.** Wears per year measure usage, not purchase demand. A 10%→2% rule is a loose historical correlation, and 19% is an extrapolation beyond what it was built on.
+- A defensible uplift is **0-4%**, not 10%. At 10%, the forecast is overstated by about 200 units relative to the 4% case.
+
+## 3. The 3,700 forecast: **roughly right by accident**
+- It was built from the understated base plus the overstated uplift, so the two errors partly cancel.
+- Correcting both: (3,600-3,900) × 1.00-1.04 ≈ **3,600-4,050**. This is wider and centred slightly higher than 3,700.
+- Treat it as a range, not a point. Because the demand risk is skewed (see below), the range matters for the order quantity.
+
+## 4. Retail price £45: **overstates revenue per unit by about 20%**
+- UK shelf prices include VAT. Net revenue is **£37.50** at full price and **£22.50** (£27 less VAT) at 40% off. Margin per unit is £22.30 at £15.20 cost, not £29.80.
+- If any sales go through wholesale or concessions, net revenue is lower still.
+
+## 5. Stock in hand of 150: **probably overstated for useful stock**
+- Last year's leftovers were XS and XXL. If the 150 units are those sizes, they don't cover core-size demand, and the effective stock is well below 150. Check the size split.
+
+## 6. Smaller points
+- **Clearance assumption.** Last year the full 600 cleared at 40% off. This year only 300 will clear and the rest is written off, so overbuying is more costly than last year's experience suggests.
+- **Seasonality.** The 283/wk average hides the weekly shape. The 12-week wear logging may also be seasonally biased if it is annualised from autumn/winter data.
+- **Lead time.** 14 weeks means anything ordered now lands late in the season, which cuts selling weeks. Check this against the calendar.
+- **Budget.** The £70k budget isn't binding. 5,000 units at £13.20 costs £66,000.
+
+## Before ordering, I'd want
+1. Weekly sales and stock by size, to find stock-out dates and unconstrained demand.
+2. The number of jumper owners in the 600-user sample, and the spread of their wear counts.
+3. The size breakdown of the 150 units in hand.
+4. Whether prices are VAT-inclusive and whether any sales go through wholesale.
+
+Then I'd run the order-quantity decision as a scenario range (about 3,600-4,050 demand) using net revenue and the 300-unit clearance cap."
+claude-sonnet-5-5,diagnose-c3-r4,3,,,,"# Which figures are likely to be wrong, and in which direction
+
+## 1. Wear data (39.1 vs 25 wears a year): likely overstated
+This is the weakest input.
+
+- **Selection bias.** Users logged only 4 of their 10 knitwear items, mostly favourites. Favourites get worn more, so wears per item are inflated. Owners who logged this jumper are probably its keenest fans.
+- **Unrepresentative sample.** People who use a wardrobe app are more engaged and fashion-aware than the average buyer, and 600 users says little about the whole customer base. Sampling error is small at that size, but the bias is not.
+- **Benchmark is biased too.** The 25-wear knitwear average comes from the same favourites-heavy logging, so it is inflated as well. Some of the bias cancels in the ratio, but not reliably. A core crew-neck may be a favourite more often than a statement knit, so its inflation could be larger.
+- **Size of the error (a judgement, not measured).**
+  - The raw gap is +56%.
+  - A true gap of perhaps +20–40% is plausible.
+  - Using the brand's rule (10% more wear gives about 2% more sales), the raw figure implies about +11% sales and a corrected one about +4–8%.
+  - So the wear-based uplift is overstated by roughly 3–7 points, or about 100–250 units on a base of about 3,400.
+- **Extrapolation.** The brand's rule is a correlation from history and is probably not causal. A 56% wear gap is also likely far outside the range it was fitted on, and the effect probably saturates. The rule gives growth over last year, and this jumper's high wear was already in last year's sales.
+
+## 2. Forecast of 3,700: probably modestly overstated
+- It is last year's full-price sales (3,400) plus about 9–10%, and the uplift leans on the inflated wear data. A more defensible central estimate is about 3,450–3,650.
+- It is a single point estimate, and real uncertainty is probably ±10–15%.
+- The 3,400 base may itself be slightly high, because some full-price sales may have been pulled forward from, or lost to, the markdown period.
+- Last year's 4,000 units sold out, but only 3,400 were at full price, so use 3,400 as the demand base, not 4,000.
+
+## 3. Retail price of £45: overstates revenue per unit
+- If £45 includes VAT, net revenue is £37.50, which is 17% lower.
+- The 40% markdown price of £27 is about £22.50 net.
+- Returns (especially online), payment fees and promotional discounts push realised revenue lower still.
+
+## 4. Unit cost (£13.20–£15.20): likely understates true cost
+- If these are ex-works prices, freight, duty, and handling may add several percent.
+- Check whether the price breaks are quoted landed.
+
+## 5. Stock in hand of 150: probably slightly overstated
+- Book stock usually exceeds sellable stock because of shrinkage, damage and mislocated units.
+- It is also a total across sizes, and size and colour imbalance means not all 150 units are usable against the forecast.
+- The error is probably a few percent, or 5–15 units.
+
+## 6. Clearance limit of 300 units at 40% off: probably conservative
+- Last year 600 units cleared at that discount, so 300 may understate clearance capacity.
+- At a net clearance price of about £22.50, clearance still earns more than the unit cost (£13–£15) per unit, so overage is less costly than it looks.
+- The risk is therefore skewed. Overbuying is cheap relative to stocking out, because the margin lost per unit of unmet demand is about £23. That favours not shaving the order down on the strength of an inflated uplift.
+
+## 7. Lead time of 14 weeks
+This is not a bias, but it limits any correction. There is no chance to reorder in season, so the order has to be right once.
+
+## Summary
+| Figure | Direction | Rough size |
+|---|---|---|
+| Wear gap / implied uplift | Overstated | +56% likely nearer +20–40%; uplift about 4–8%, not 11% |
+| Forecast 3,700 | Overstated | about 100–250 units |
+| £45 price | Overstates net revenue | about 17% from VAT alone, plus returns |
+| Unit cost | Possibly understated | a few % if not landed |
+| Stock of 150 | Slightly overstated | about 5–15 units |
+| Clearance cap of 300 | Probably understated | uncertain |
+
+Before deciding, I would rebuild the forecast as a range (for example 3,300 / 3,550 / 3,800) and run profit on net-of-VAT revenue and landed cost."
+claude-sonnet-5-5,diagnose-c4-r4,4,,,,"# Which figures are likely wrong, and by how much
+
+## 1. The forecast of 3,700 is probably overstated, by about 10%
+- 3,700 is last year's full-price sales (3,400) plus roughly 10% (3,740, rounded). Nothing in the data supports that 10%.
+- The wear data points the other way. 22.9 against 25 is 8.4% **below** the knitwear average, not above it.
+- Using your brand rule (+10% wears gives about +2% sales, so an elasticity of about 0.2), this implies about −1.7% sales, or roughly 3,340 units.
+- A sensible central case is flat to slightly down, **about 3,300–3,400**. That makes 3,700 about 300–400 units (9–10%) too high.
+- The brand rule is also a correlation from a handful of styles. It is weak evidence either way, and I wouldn't lean on it for an uplift.
+
+## 2. The wear figure of 22.9 is understated in absolute terms, by about 35%
+- 40% of users stopped logging before week 6, and their garments show no wears after that.
+- If wear rate is constant, stoppers log only about 6/52 (about 12%) of a year. Logged wears are then about 0.6 + 0.4 × 0.12 ≈ 65% of true wears.
+- True wears are therefore about 22.9 / 0.65 ≈ **35 a year**, so the app understates by roughly a third.
+- The 25 benchmark comes from the same app, so it is probably understated by a similar amount. The relative comparison (about −8%) is therefore less distorted than either absolute number. The attrition may not be equal across styles, though, so treat even the −8% as uncertain.
+- The data also comes from only 600 self-selected, engaged app users. That sample is unlikely to represent the buying public. It also covers owners only, and wears say little about repurchase.
+
+## 3. Revenue per unit is overstated by 20%
+- UK retail prices include VAT. Net revenue is £45 / 1.2 = **£37.50**, and the markdown price of £27 is **£22.50** net.
+- If the profit calculation uses £45, it overstates margin per unit by £7.50, about 24% of the unit margin at the £14.00 cost.
+
+## 4. Unit costs are probably understated
+- The supplier prices are likely ex-works. Freight, duty, packaging and handling would raise the landed cost, perhaps by 3–8%, though that is a guess to check.
+- Returns, especially online, may mean that ""sold 3,400"" overstates net sales if it is gross of returns. Check this.
+
+## 5. Smaller points
+- **Last year's full-price sales:** these may be slightly understated if the markdown timing pulled forward customers who would have paid full price. That is probably a minor effect.
+- **Markdown capacity:** the assumption that only 300 units clear at 40% off conflicts with last year, when 600 cleared. It is either conservative or reflects a real change, so confirm which.
+- **Point forecast:** 3,700 is a single number with no range. The order quantity depends on demand uncertainty, so I'd want a spread, for example ±15%.
+- **Stock in hand:** the 150 units reduce the buy needed, and the order should be sized net of them.
+
+## Implication
+Before choosing between 3,000, 4,000 and 5,000 units, I would rebase demand to about 3,350 (range perhaps 2,800–3,900) and use net-of-VAT prices and landed costs. That likely shifts the answer toward the lower end of the order range than a 3,700 forecast would suggest."
+claude-sonnet-5-5,diagnose-c5-r4,5,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. The 10% uplift is overstated (about 2.5x too high)
+- 29.8 vs 25 wears is **19.2% above** the knitwear average, not 10%.
+- Using your brand's rule (10% more wears ≈ 2% more sales), that implies about **+3.8%**, not +10%.
+- That is roughly 6 percentage points of overstatement, or about 200–250 units on a base of 3,500–4,000.
+- Even the +3.8% is soft:
+  - It is a correlation, and the rule is extrapolated linearly outside the range it was observed in.
+  - It comes from a different set of styles.
+  - Wear by existing owners measures satisfaction, not new buyers.
+
+## 2. The wear figure itself is probably overstated
+- App users are a self-selected, engaged group who log their clothes and probably wear and track more than the average customer.
+- If the 12 logged weeks were autumn or winter and were annualised, knitwear wears per year are inflated.
+- A core crew-neck is a basic, so it will naturally be worn more than the average knitwear item. That reflects product type, not extra demand.
+- The knitwear average comes from the same app and method, so the **ratio** is less biased than the absolute 29.8.
+- Overall: treat 19% as an upper bound. The real gap may be smaller.
+- The sample of 600 has no spread or confidence interval, so I can't say whether the gap is noise.
+
+## 3. Last year's demand is probably understated, because the data is censored
+- At week 13 only XS and XXL remained, so **S–XL had sold out**, and customers wanting those sizes were lost for up to 8 weeks.
+- The 283 per week average is therefore a floor on full-price demand. If the core sizes ran out before week 12, it is understated even within weeks 1–12.
+- Rough guess: true unconstrained full-price demand was **5–20% higher** than the 3,396 sold. This is highly uncertain, and I would try to get size-level sell-through and the stock-out dates.
+
+## 4. The 4,000 base (and so the 3,700 forecast) mixes full-price and marked-down sales
+- Of the 4,000 units, about **600 (15%)** sold at 40% off, and only in XS and XXL.
+- The full-price base is **about 3,400**, not 4,000.
+- The 600 marked-down sales say little about price response. They were limited by size availability, not by the discount.
+- The 3,700 forecast looks coincidentally reasonable. 3,400 × 1.038 ≈ 3,525 on the data as it stands, while the censoring in point 3 pushes it up. Both errors are large and run in opposite directions, so don't trust the net result.
+
+## 5. Stock in hand (150) may overstate usable stock
+- Last year's 600 leftover units appear to have sold out (75 × 8 = 600), so where do the 150 come from?
+- If they are leftovers or returns, they are probably skewed to XS and XXL.
+- Usable stock across S–XL is likely **below 150**.
+
+## 6. The £45 price is overstated as revenue
+- If £45 is the VAT-inclusive shelf price, net revenue per unit is **£37.50** (20% lower). The 40%-off price is £27 gross, or £22.50 net.
+- Sales may also be gross of returns, which for UK clothing, especially online, can be 15–30%. This is unknown.
+- Either would materially change the profit and the optimal order quantity.
+
+## Net effect
+- **Overstated:** the +10% uplift, the 29.8 wears, the 4,000 base as a full-price figure, the stock in hand, and net revenue per unit.
+- **Understated:** true full-price demand last year, because of the size stock-outs.
+- Before choosing an order quantity, I'd rebuild the forecast from full-price sales by size, adjusted for stock-outs, with a modest uplift of about 0–4%, and run it as a range of scenarios, not a single 3,700."
+claude-sonnet-5-5,diagnose-c3-r5,3,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. Wear data (39.1 vs 25): overstated, probably by a lot
+
+- **Selection bias.** Users logged only about 4 of 10 knitwear items, mostly favourites. Favourites get worn far more than the average jumper in a wardrobe, so 39.1 describes enthusiastic owners, not typical buyers.
+- **Weak comparison.** The 25 benchmark comes from the same biased app, so some of the bias cancels. It won't cancel fully, though. A core crew-neck is a staple that people naturally wear more than a statement knit, and a staple is also more likely to be logged as a favourite.
+- **Sample size.** ""600 users"" is not the number of jumper owners. Only a subset owns this style, perhaps dozens, so 39.1 is a noisy figure with false precision.
+- **Size of the overstatement.** The headline premium is +56% (39.1/25). My guess is that a realistic premium is nearer +10% to +30%. I'd treat it as overstated by half or more, but that is a judgement, not a measurement.
+
+## 2. The ""+10% demand"" forecast (3,700): probably overstated
+
+- Applying the brand rule (+10% wear gives about +2% sales) to a +56% premium implies about +11%. That is probably where the +10% comes from.
+- The rule has three problems:
+  - It is a correlation, not a cause.
+  - It is being extrapolated far beyond the range it was observed in.
+  - It starts from the inflated wear premium above.
+- A premium of +10–30% implies roughly **+2–6% sales**, not +10%.
+- That gives a realistic mean of about **3,450–3,600**, with a central figure near 3,500, rather than 3,700. The error is about 5% too high on the mean.
+- 3,700 is only a mean. It is not an order quantity, and the uncertainty around it matters for the buy.
+
+## 3. Last year's 3,400 full-price sales: roughly right, possibly slightly understated
+
+- The jumper didn't stock out before the markdown, so the figure isn't badly censored.
+- Leftover stock was probably concentrated in unpopular sizes and colours, while popular sizes may have sold out early. That would mean true full-price demand was slightly higher than 3,400, perhaps by 0–5%.
+- The 600 marked-down units are not full-price demand and should be excluded.
+
+## 4. £45 retail price: overstated as a revenue figure, by 20%
+
+- UK retail prices include VAT. Net revenue per unit is **£37.50**, not £45.
+- The markdown price of £27 is **£22.50** net.
+- Returns, payment costs and any wholesale or retail margin reduce this further. Unless it is already net, the £45 overstates revenue per unit by at least 20%.
+
+## 5. Unit costs (£15.20 / £14.00 / £13.20): probably understated
+
+- These look like supplier prices, not landed cost. Freight, duty, packing and QC would add perhaps 3–10%.
+- If so, the real cost is higher than quoted, which narrows the savings from the larger tiers.
+
+## 6. Clearance assumption (300 units at 40% off): probably understated
+
+- Last year 600 units cleared at 40% off, so a cap of 300 looks pessimistic, or at least inconsistent with the evidence.
+- It may reflect a real constraint, such as fewer channels or less time. It should be confirmed, because it determines the cost of over-ordering.
+
+## 7. Stock in hand (150): check before using
+
+- Confirm it is sellable, in the right sizes, and not already allocated or awaiting return processing.
+- It is small relative to the order, so the effect is minor.
+
+## Implications
+
+- Demand is more likely about 3,400–3,600 than 3,700.
+- Net revenue per unit is £37.50, not £45.
+- Landed costs are likely higher than quoted.
+- Together these make over-ordering more costly and the case for the 5,000 tier weaker than the raw numbers suggest.
+- The budget is not the binding constraint: even 5,000 units at £13.20 is £66,000."
+claude-sonnet-5-5,diagnose-c4-r5,4,,,,"# Which figures are likely to be wrong
+
+## Most likely overstated
+
+**1. Forecast of 3,700 units (overstated by roughly 8-10%, or about 300 units)**
+- The 10% uplift has no evidence behind it. This is a carryover style, and the wear data doesn't support growth (see below).
+- 3,700 is also not even 3,400 × 1.1 (that's 3,740), so the arithmetic is loose.
+- Last year's full-price demand was 3,400. Nothing was lost to a stockout, since 600 units were left over, so that number isn't censored.
+- A defensible base is about 3,400, perhaps 3,350-3,450, with a range around it rather than a single point.
+- Ordering to 3,700 plus a buffer would repeat last year's overbuy.
+
+**2. Retail price of £45 (overstated by 20% as a revenue figure)**
+- UK shelf prices include 20% VAT, so net revenue is £37.50 per unit, not £45.
+- The markdown price of £27 nets to £22.50.
+- Margin is therefore much thinner than a £45 calculation suggests. This matters for the order quantity: the cost of being overstocked is relatively higher.
+
+**3. Wear-data link to sales (overstated as a growth signal)**
+- Taken at face value, 22.9 against 25 is 8.4% below average. The brand's own rule (+10% wear gives +2% sales) implies about -1.7% sales, not +10%.
+- The rule itself is a historical correlation, not a causal effect, and the effect is tiny anyway.
+
+## Understated
+
+**4. Wears per year, 22.9 (understated, probably by about a third)**
+- 40% of users stopped logging before week 6, so their wears after that point are recorded as zero.
+- If dropouts logged essentially nothing, the active 60% would be averaging around 38 wears. If dropouts kept wearing at the same rate, the true average would be about 35.
+- The true figure is probably in the low-to-mid 30s, not 22.9.
+- The comparison with the knitwear average of 25 is only fair if that figure carries the same dropout bias. That is unknown, so the ""8% below average"" conclusion isn't reliable either way.
+- The sample is also 600 self-selected app users, who are probably younger and more engaged than the typical buyer. The data is weak evidence for the whole customer base.
+
+## Possibly understated or inconsistent
+
+**5. Clearance capacity of 300 units**
+- Last year 600 units cleared at 40% off, so the 300 cap looks conservative. It may be true this year (a channel change, say), but it should be checked.
+- If the true capacity is 600, the downside of over-ordering is smaller than modelled.
+
+## Other points to check
+- **Stock in hand (150 units):** confirm it is sellable and not already counted in last year's figures.
+- **Lead time of 14 weeks:** this is effectively a single buy, so the quantity decision carries all the risk.
+- **Price breaks:** costs are only quoted at 3,000, 4,000 and 5,000 units. Confirm what applies at in-between quantities, such as 3,500.
+
+## Implication
+Before deciding, I'd rebase demand to about 3,400 (±10%), use net-of-VAT revenue, and ignore the wear data. Then I'd test the 3,000 and 4,000 price tiers against a demand distribution."
+claude-sonnet-5-5,diagnose-c5-r5,5,,,,"# Which figures are likely wrong, and in which direction
+
+## 1. Last year's full-price demand is probably understated (by roughly 5-15%)
+- The 3,400 full-price sales (283 × 12 weeks) are *sales*, not *demand*. The 600 units left at week 13 were only XS and XXL, so the core sizes (S-XL) had sold out before the markdown began.
+- Sales in the late full-price weeks were therefore capped by missing sizes. The flat 283 average probably hides a tail-off.
+- I can't measure the lost sales from what's given. A reasonable guess is 5-15% (about 200-500 units) of full-price demand, and possibly more.
+- To check this, I'd pull weekly sales by size and find the week each core size ran out.
+
+## 2. Last year's markdown demand is also understated
+- The 75 units a week were sold in XS and XXL only, so they say little about what a full size run would sell at 40% off.
+- This matters less, because the clearance cap is only 300 units.
+
+## 3. The 10% uplift is overstated (by roughly 6 points)
+- The wear data doesn't support 10%. Wears are 29.8 against 25, which is 19% higher. Using the brand's own rule of thumb (10% more wear gives about 2% more sales), that implies roughly +4%.
+- 3,400 × 1.04 is about 3,540, not 3,700.
+- The wear-to-sales rule also comes from other styles, and it is a correlation rather than a cause.
+- Last year's sales already reflect this jumper's popularity, so adding a wear-based uplift risks double-counting.
+
+**These errors partly offset each other.** If the censored base is really about 3,700-3,900, then +4% gives about 3,850-4,050. The 3,700 may be close by luck but for the wrong reasons. I'd treat the plausible range as about 3,500-4,100, not a point estimate of 3,700.
+
+## 4. The wear figure of 29.8 is probably overstated, though the ratio less so
+- Users logged for 12 weeks only, so the annual figure is an extrapolation (about ×4.3). If those weeks were autumn or winter, knitwear wear is seasonally high and the annual figure is inflated.
+- The 25 average was probably annualised the same way, so the *ratio* partly cancels the bias. A crew-neck jumper may still be worn more in peak weeks than average knitwear, which would inflate the ratio.
+- App users are engaged, self-selected wardrobe loggers, and they are not typical buyers. Their absolute wear counts will be higher than the general population's.
+- Owners of a style are people who bought it and kept it, so 29.8 is a retention signal rather than a measure of new demand.
+- The true gap versus average knitwear is probably under 19%, so the implied uplift is more likely 2-4% than 4%.
+- Sampling error from 600 users is a minor concern next to these biases, and it's unclear whether 600 is all app users or only owners of this jumper.
+
+## 5. Revenue per unit is overstated by about 17%
+- A UK retail price of £45 includes 20% VAT, so net revenue is £37.50 (£22.50 at 40% off, not £27).
+- Unit margin at the 4,000 price break is £37.50 − £14.00 = £23.50, not £31.00. That overstates margin by about a third.
+- If I used £45 in the profit model, it would push me toward buying too much.
+
+## 6. Unit cost is probably understated
+- The £15.20, £14.00 and £13.20 prices are likely supplier prices only. Freight, duty and handling would add something, perhaps 5-10%, and this needs confirming.
+
+## 7. Stock in hand of 150 is probably overstated as usable stock
+- If it is leftover from last year, it is probably the same XS and XXL sizes, which don't serve core demand. Some may also be returns or damaged.
+- Usable stock is probably well below 150. The impact is small at about 4% of the forecast, but I'd confirm the size split.
+
+## What I would do before deciding
+1. Rebuild the demand base from size-level weekly data, correcting for stockouts.
+2. Use roughly +2-4% for the wear effect, not +10%.
+3. Run the profit model on ex-VAT prices and landed cost.
+4. Compare the 3,000, 4,000 and 5,000 price breaks across a demand range of about 3,500-4,100, rather than at a single forecast.
+5. Account for the 14-week lead time against the selling window."
+gpt-6.1-sol,diagnose-c3-r1,3,,,,"**Yes—the wear data are likely to flatter actual usage. The sales forecast also needs its basis clarified.** But the information given does not support a precise adjustment for the wear-data bias.
+
+### 1. The 39.1 wears figure probably overstates typical usage
+Users logged only **40% of their knitwear**, mostly favourites. Frequently worn items are therefore more likely to be included than neglected ones.
+
+- **Likely direction:** 39.1 wears overstates average annual wear across *all* owners’ examples of this jumper.
+- **Rough magnitude:** not identifiable from these data. Logging 40% of items does **not** mean wear is overstated by 60%, or that we should multiply 39.1 by 40%.
+- **600 users does not remove this bias:** a large, selectively observed sample can still be systematically unrepresentative.
+
+The **25-wear app average probably also overstates** average wear across all knitwear, for the same reason.
+
+### 2. The apparent sales uplift could consequently be overstated—but we cannot establish by how much
+Taken literally, the app comparison gives:
+
+\[
+39.1/25-1=56.4\%\text{ more wears}
+\]
+
+Applying the historical relationship mechanically gives:
+
+\[
+56.4\%\times(2/10)=11.3\%\text{ additional sales}
+\]
+
+**That 11.3% is a naïve extrapolation, not a defensible demand adjustment yet.** Both wear figures are selected towards favourites. If this jumper is especially likely to be logged only when it is a favourite, its relative advantage is exaggerated. If selection affects both groups similarly, much of the bias could cancel.
+
+So the **absolute wear figures are likely too high; the direction and size of bias in their ratio are uncertain**. There is no sound basis here for replacing 11.3% with a particular “corrected” uplift. The historical relationship also does not establish that extra wear *causes* extra demand.
+
+### 3. “Last year plus 10%” is ambiguous—and potentially understates sales materially
+
+| Forecast basis | Correct calculation | Comparison with 3,700 |
+|---|---:|---|
+| Last year’s **full-price** sales | 3,400 × 1.10 = **3,740** | 3,700 is about **1% lower**, plausibly rounding |
+| Last year’s **total** sales | 4,000 × 1.10 = **4,400** | 3,700 is about **16% lower** |
+
+For this decision, establish whether **3,700 means full-price demand or total sales including clearance**. They are not interchangeable.
+
+### 4. Check the VAT basis before treating retail price as revenue
+For standard-rated adult clothing, **£45 including VAT means £37.50 net revenue**; the £27 clearance price means **£22.50 net**. If supplier costs are quoted excluding VAT, comparing them with VAT-inclusive selling prices would overstate profit by **£7.50 per full-price sale** and **£4.50 per clearance sale**.
+
+**Bottom line:** flag the wear figures as upward-selected, do **not** automatically add 11.3% to demand, and clarify the forecast’s full-price/total-sales basis before choosing an order quantity."
+gpt-6.1-sol,diagnose-c4-r1,4,,,,"**The wear figure is likely understated. The sales forecast also needs its basis clarified.** Neither should be adjusted mechanically without checking how the data were constructed.
+
+### 1. Recorded wear: likely too low, potentially materially
+The **22.9 wears per year** treats missing logging after dropout as though the garments were no longer worn. Stopping logging is not evidence of stopping wearing.
+
+An illustrative correction:
+- Assume the remaining 60% logged for the full year.
+- Assume dropouts continued wearing at the same rate as continuing users, but logged for only 0–6 weeks.
+- The sample then captures roughly **60–65% of a full year’s wear exposure**.
+
+On those assumptions, annual wear would be about:
+
+**22.9 ÷ 0.60–0.65 ≈ 35–38 wears per year.**
+
+That makes recorded wear roughly **35–40% below actual wear**, or actual wear **55–67% above the recorded figure**.
+
+**This is a sensitivity estimate, not a reliable correction:** people who stop logging may wear the jumper more or less often than those who continue. Logging dates and dropout behaviour are needed to estimate the bias properly.
+
+### 2. The comparison with “25 wears” may also be biased
+As reported, the jumper appears to be worn **8.4% less** than average:  
+\(22.9/25-1=-8.4\%\).
+
+But we need to know whether the knitwear benchmark suffers from the same missing-log problem:
+- **If its attrition is similar**, much of the bias could cancel in the comparison.
+- **If 25 is a properly annualised benchmark**, the illustrative corrected jumper figure would instead be **about 42–53% above average**.
+
+So the apparent below-average performance is **not yet a sound basis for reducing demand**. We cannot confidently quantify the relative bias without comparable logging methods.
+
+### 3. The 3,700-unit forecast is slightly low—or uses an unclear base
+- Last year’s **full-price sales × 1.10 = 3,740**, so 3,700 is about **40 units, or 1%, below** that calculation—probably rounding.
+- Last year’s **total sales × 1.10 = 4,400**, so 3,700 is **700 units, or 16%, below** that calculation.
+
+For this decision, full-price demand and clearance demand should be forecast separately: last year’s 600 discounted sales do not establish 600 units of demand at £45.
+
+### 4. The wear-to-sales relationship is not a guaranteed uplift
+The historical relationship implies that an **8.4% wear shortfall** corresponds to roughly **1.7% lower following-season sales**, **if** the relationship is linear and applicable here.
+
+But it is an association, not necessarily a causal effect. Applying it to a potentially biased wear comparison—or extrapolating it to a corrected 42–53% advantage—could materially misstate demand. **The direction and size of that forecasting error are not established.**
+
+**Bottom line:** investigate wear under-recording and benchmark comparability first; clarify whether 3,700 means full-price or total demand. I would not make a buy decision from the apparent wear shortfall as it stands."
+gpt-6.1-sol,diagnose-c5-r1,5,,,,"Yes—but distinguish **an identifiable arithmetic mismatch** from **biases whose size cannot be estimated from these data**.
+
+### 1. The 3,700-unit forecast is low **if it means total sales plus 10%**
+
+Last year’s implied sales were:
+
+- Full price: 12 × 283 = **3,396 units**
+- Markdown: 8 × 75 = **600 units**
+- Total: **3,996 units**, effectively the 4,000 bought; the four-unit discrepancy is rounding.
+
+Total sales plus 10% would therefore be **about 4,400 units**. On that definition, 3,700 understates the forecast by **about 700 units, or 16%**.
+
+However, **full-price sales plus 10% = 3,736 units**. If 3,700 is intended as a rounded *full-price* forecast, it is broadly consistent—only about 36 units lower. The forecast needs that definition clarified.
+
+### 2. Last year’s sales probably **understate unconstrained demand**, by an unknown amount
+
+At week 13, only XS and XXL remained. Customers wanting the other sizes could no longer buy, so the subsequent sales rate was constrained by availability.
+
+Consequently:
+
+- **4,000 sold is not a clean measure of total demand.**
+- **75 units a week is not a clean measure of late-season demand.**
+- The apparent fall from 283 to 75 units—about **74%**—cannot be attributed simply to demand fading. Size availability and price both changed.
+
+The likely direction is **understatement of demand for the missing sizes**, but there is no defensible numerical correction without size-level stockout dates, sales and seasonal demand patterns. Assuming 283 units would have continued every week would also be unjustified.
+
+### 3. The wear figures imply a **3.84% sales signal**, not a 19.2% sales uplift
+
+The jumper’s reported wear advantage is:
+
+\[
+29.8/25-1 = 19.2\%
+\]
+
+Applying the historical relationship proportionally:
+
+\[
+19.2\% \times \frac{2\%}{10\%} = \mathbf{3.84\%}
+\]
+
+That is about **142 additional units on a 3,700-unit baseline**, *if* the relationship transfers to this sample and is not already captured in the +10% forecast.
+
+Treating the 19.2% wear advantage as a 19.2% sales uplift would overstate the implied uplift by **15.36 percentage points**, or about **568 units** on that baseline.
+
+### 4. “29.8 wears per year” is less certain than its precision suggests
+
+The observation period was only **12 weeks**. If 29.8 is a straight annualisation, it corresponds to about **6.9 observed wears per jumper** during that period.
+
+- If those were peak knitwear weeks, straight annualisation would likely **overstate annual wear**.
+- If they were unusually warm weeks, it could **understate annual wear**.
+- The magnitude cannot be established without the dates and annualisation method.
+
+The **relative comparison with 25 wears** is more useful if both figures use the same users, period and method, although differing seasonal use could still distort it.
+
+Recording every owned knitwear item and logging throughout helps address selective item recording and incomplete logging. It does **not** establish that app users represent the brand’s wider customers. Nor does a sample of 600 alone provide a numerical bias correction or confidence interval.
+
+**Bottom line:** clarify whether 3,700 forecasts full-price or total sales; recognise that last year’s broken size availability likely suppressed measured demand; and treat the wear evidence as a conditional **roughly 4% signal**, not an automatic extra uplift. There is not enough evidence to attach a reliable numerical correction to the stockout or app-sample biases."
+gpt-6.1-sol,diagnose-c3-r2,3,,,,"**The wear figure is likely biased upwards. The 3,700-unit forecast also needs its basis clarified.** Neither should be adjusted mechanically.
+
+### 1. The 39.1 wears probably overstates typical wear—but the size of the bias is unknown
+
+Users logged only **40% of their knitwear**, mostly favourites. That makes 39.1 a measure of **selected, well-liked jumpers**, rather than necessarily the average jumper sold. App users may also differ from your wider customer base.
+
+However, the **25-wear knitwear benchmark may have the same selection bias**. So although both absolute wear figures are likely high, we cannot tell how much the jumper’s *relative advantage* is overstated.
+
+- Reported advantage: **39.1 ÷ 25 − 1 = 56.4%**.
+- Applying the historical relationship mechanically gives **11.3% additional sales**: 56.4% ÷ 10% × 2%.
+- That would add about **417 units** to a 3,700-unit forecast.
+
+**That 417-unit uplift is not yet a defensible forecast adjustment.** It assumes comparable samples, a relationship that remains linear at a 56% wear advantage, and an effect not already captured in the existing forecast.
+
+There is **no reliable numerical correction** from the information supplied. In particular, logging 40% of items does **not** mean multiplying wears by 40%. A sample of 600 can reduce random error; it does not remove selection bias.
+
+For scale only: if the six omitted items averaged 25 wears, the ten-item average would be **30.6**, about **22% below 39.1**. That illustrates the potential effect of selection, not an estimate of the correct adjustment.
+
+### 2. “Last year plus 10% = 3,700” is ambiguous
+
+| Intended basis | Correct calculation | How 3,700 compares |
+|---|---:|---:|
+| Last year’s **full-price sales** | 3,400 × 1.10 = **3,740** | 40 units low, about **1%**—reasonable rounding |
+| Last year’s **total sales** | 4,000 × 1.10 = **4,400** | 700 units low, about **16%** |
+
+For profit planning, distinguish **full-price demand** from clearance sales. Last year’s 600 discounted sales are not evidence of another 600 customers willing to pay £45.
+
+### 3. The historical wear-to-sales relationship may overstate incremental demand
+
+“Has sold about 2% more” is an **association**, not necessarily a causal effect. Availability, marketing, distribution and underlying popularity could explain some of it. There is not enough information to quantify that overstatement.
+
+**Bottom line:** treat the wear-derived **11.3% uplift as an unvalidated scenario, not an established adjustment**, and clarify whether 3,700 means full-price or total demand before making the buying decision. There is no stated evidence that the other supplied commercial figures are biased."
+gpt-6.1-sol,diagnose-c4-r2,4,,,,"**Yes—the wear figure is likely understated, and the sales forecast has an ambiguous baseline.** I would resolve both before using them in a buying decision.
+
+### 1. The 22.9 annual wears likely understates actual wear
+Users who stop logging are effectively being treated as if they stopped wearing the jumper. **Missing logs are not evidence of zero wears.**
+
+An illustrative correction, assuming the remaining users logged all year and dropouts wore their jumpers at similar rates:
+- If 40% logged for six weeks, the sample captured roughly **65% of a full year’s exposure**:  
+  \(60\% + 40\% \times 6/52 \approx 65\%\).
+- Corrected annual wear would be approximately **35.4 wears**, rather than 22.9.
+- If those users stopped almost immediately, it would be approximately **38.2 wears**.
+
+Under those assumptions, **22.9 understates annual wear by roughly 12–15 wears**, or **35–40% of actual wear**.
+
+That is a sensitivity range, not a reliable estimate: knitwear is seasonal, and people who stop logging may have different wearing habits.
+
+### 2. “Below-average wear” may therefore be misleading
+The raw comparison puts this jumper **8.4% below** the app’s knitwear average:
+\[
+22.9/25-1=-8.4\%.
+\]
+
+But we need to know **whether the 25-wear benchmark suffers from the same logging attrition**:
+- If it does, with a similar pattern, much of the bias may cancel in the comparison.
+- If it is a complete-year or already-adjusted benchmark, this jumper’s relative wear is being understated substantially.
+
+For illustration, mechanically applying the historical relationship to the raw figures suggests **1.7% lower sales**. Applying it to the corrected wear range against an unaffected benchmark suggests **8–11% higher sales**. That large swing shows why the logging issue matters—not that the higher forecast is justified. The historical relationship is also an association, not proof that higher wear causes higher sales.
+
+### 3. The 3,700-unit forecast may understate “last year plus 10%”
+Last year’s **total sales were 4,000**, including markdown sales:
+- Total sales plus 10% = **4,400**, so 3,700 is **700 units, or about 16%, lower**.
+- Full-price sales plus 10% = **3,740**, so 3,700 is a reasonable rounded **full-price demand forecast**—only 40 units lower.
+
+**The forecast needs labelling:** is it full-price demand or total unit sales? Last year’s sales also need not equal unconstrained demand if availability restricted sales.
+
+### 4. Check whether the £45 retail price includes VAT
+For a standard-rated adult jumper, £45 including UK VAT means **£37.50 net sales revenue**; the 40%-off price is £27 including VAT, or **£22.50 net**.
+
+If supplier costs are quoted excluding recoverable VAT, using £45 and £27 directly in a profit calculation would **overstate contribution by £7.50 per full-price sale and £4.50 per clearance sale**. Confirm a consistent VAT basis.
+
+**Bottom line:** the strongest data-quality concern is downward-biased wear from incomplete logging. The most immediate forecast concern is the unexplained switch from 4,000 total sales to a 3,700-unit “plus 10%” forecast. Neither supports a precise revised demand estimate without clarification."
+gpt-6.1-sol,diagnose-c5-r2,5,,,,"**Yes. The main concerns are the forecast’s stated basis, sales being treated as demand, and the interpretation of the wear data.** Some discrepancies are measurable; others cannot honestly be assigned a percentage from these facts.
+
+### 1. The 3,700-unit forecast understates “last year plus 10%”—if that means total sales
+
+Last year’s reported sales were approximately:
+
+- Full price: 12 × 283 = **3,396 units**
+- Markdown: 8 × 75 = **600 units**
+- Total: **3,996 units**, consistent with a 4,000-unit buy after rounding.
+
+Total sales plus 10% would therefore be **about 4,396 units**, not 3,700. The stated forecast is **about 700 units, or 16%, below that calculation**.
+
+However, full-price sales plus 10% are **3,736 units**, close to 3,700. So the forecast may actually mean *last year’s full-price sales plus 10%*. That distinction needs resolving: full-price demand and total sales including clearance are not interchangeable.
+
+### 2. Last year’s sales probably understate unconstrained demand—but the amount is unknown
+
+At week 13, all 600 remaining units were XS and XXL. The core sizes had therefore sold out by then, and possibly earlier.
+
+That means:
+
+- The **283-unit weekly full-price average may be constrained by size availability**.
+- The subsequent **75-unit markdown average is not a clean measure of late-season demand**: customers had only two extreme sizes available.
+
+The likely bias in using these sales as a demand forecast is **downward**, but there is no defensible percentage adjustment without sales and stock availability by size and week. Conversely, the remaining XS/XXL stock suggests the **size mix overstated demand for those sizes**, not necessarily that the total buy was excessive.
+
+### 3. The wear advantage is 19.2%; its implied sales signal is only about 3.8%
+
+The jumper’s reported wear advantage is:
+
+\[
+29.8 / 25 - 1 = 19.2\%
+\]
+
+Applying the historical relationship proportionally gives:
+
+\[
+19.2\% \times (2\% / 10\%) = \mathbf{3.84\%}
+\]
+
+Thus, interpreting the wear advantage as a **19.2% sales uplift would overstate the historical signal by fivefold**. Even 3.8% is only an indicative association, not a guaranteed causal uplift. It should not automatically be added to the existing 10% forecast growth, which may already capture some of the same effect.
+
+### 4. The annual wear figures may overstate or understate reality
+
+Twelve weeks of logging do not directly establish annual wear. **If these figures were annualised from a winter-heavy period, they would likely overstate annual knitwear use; a summer-heavy period could understate it.** The amount is not identifiable here.
+
+Recording every owned knitwear item reduces selective-item reporting, but 600 app users are not necessarily representative of this brand’s customers. Neither the direction nor magnitude of that bias can be established from sample size alone.
+
+### 5. Last year’s clearance volume would overstate this year’s stated recovery capacity
+
+Last year cleared approximately **600 units**; this year’s assumption permits only **300**. Reusing last year’s clearance volume would overstate recovery by **300 units**, or **£8,100 in customer receipts** at £27 each, before any VAT adjustment.
+
+**Bottom line:** correct the forecast’s definition first. Do not treat observed sales as unrestricted demand, or treat the app’s annual wear and implied uplift as precise forecasts."
+gpt-6.1-sol,diagnose-c3-r3,3,,,,"**The main likely overstatement is the wear rate’s representativeness—not necessarily the recorded 39.1 wears itself.** The app sample is biased towards favourites. That matters before using wear to increase the sales forecast.
+
+| Figure | Likely issue and direction | Rough size |
+|---|---|---|
+| **39.1 wears per year** | Likely **overstates wear across all owners’ jumpers**, because people preferentially added favourites. Unlogged, less-loved jumpers are underrepresented. | **Not identifiable from these data.** We know only 40% of knitwear items were logged, not how often the missing 60% were worn. |
+| **25-wear app average** | Likely also **overstates wear across all knitwear owned**, for the same reason. | Again, not identifiable. Because both figures come from the app, some bias may cancel in the comparison—but we cannot assume it cancels fully. |
+| **The jumper’s apparent wear advantage** | \(39.1/25-1=\mathbf{56.4\%}\). This is the observed advantage **within the app**, not necessarily a representative advantage across customers. Its bias could go either way if favourite-selection differs between this jumper and other knitwear. | The data do **not** support a defensible numerical correction. A sample of 600 reduces random sampling noise, not selection bias. |
+| **A sales uplift inferred from wear** | Applying the historical relationship proportionately gives \(56.4\% \times 2/10=\mathbf{11.3\%}\). Treating that as a reliable forecast uplift would overstate the evidence: the wear comparison may be biased, and the historical relationship may not hold over such a large gap. | It would add about **417 units** to 3,700. That is an *unvalidated adjustment*, not an established demand increase. |
+
+**Do not “correct” 39.1 by multiplying it by 40%.** That would effectively assume the six unlogged items received zero wear. Their wear is unknown.
+
+### Two other figures need checking
+
+- **“Last year plus 10% = 3,700” is ambiguous.**  
+  Last year’s **full-price sales** were 3,400; adding 10% gives **3,740**, so 3,700 is a modest rounding down of **40 units, about 1%**.  
+  Last year’s **total sales** were 4,000; adding 10% gives **4,400**, or **700 more than the forecast**. Neither is automatically the correct full-price demand forecast: markdown sales are not equivalent to demand at £45.
+
+- **£45 is likely a VAT-inclusive retail price.**  
+  Assuming standard-rated adult clothing and VAT registration, net full-price revenue is **£37.50**, and net revenue at 40% off is **£22.50**, rather than £45 and £27. Using ticket prices against VAT-exclusive costs would overstate revenue by **£7.50 per full-price sale** and **£4.50 per clearance sale**. Confirm the cost and budget VAT basis.
+
+**Bottom line:** I would not add the apparent 11.3% wear-based uplift yet. First clarify the forecast basis and validate the wear comparison using a more representative sample. There is evidence of selection bias, but no defensible numerical estimate of its size."
+gpt-6.1-sol,diagnose-c4-r3,4,,,,"**Yes—the wear figure is likely understated, and the sales forecast has an ambiguous base.** I would resolve both before using them to make a buying decision.
+
+### 1. The 22.9 wears per year probably understates actual wear
+
+Users who stopped logging have effectively contributed zeros after dropping out. **No recorded wear is not the same as no actual wear.**
+
+A rough illustration, assuming dropouts wear the jumper at the same rate as continuing users, continuing users log all year, and the reported average includes those missing periods as zeros:
+
+- If 40% stopped immediately, recorded exposure is about 60% of a year per user: corrected wear ≈ **22.9 ÷ 0.60 = 38.2**.
+- If they all stopped at week 6, exposure is about 64.6%: corrected wear ≈ **22.9 ÷ 0.646 = 35.4**.
+
+Under those assumptions, actual wear would be roughly **35–38 times a year**, or **55–67% higher than reported**. Equivalently, the reported figure understates true wear by about **35–40%**.
+
+**That is an illustration, not a reliable correction:** dropouts may wear the garment differently, and continuing users may also miss logs. We need logging duration and wear behaviour by cohort.
+
+### 2. The apparent underperformance against knitwear may be misleading
+
+The raw comparison is:
+
+**22.9 ÷ 25 − 1 = −8.4%**
+
+So the jumper appears to be worn 8.4% less than average. But we need to know whether the **25-wear benchmark has the same dropout and logging bias**.
+
+- If both figures have comparable bias, the relative comparison might remain broadly valid.
+- If only the jumper figure is affected, its relative performance is substantially understated: the illustrative corrected figure would be **42–53% above** the benchmark.
+
+We therefore cannot confidently quantify the relative wear gap yet.
+
+### 3. The 3,700-unit forecast may understate sales—or simply mean full-price sales
+
+Last year, total sales were **4,000 units**, including markdown sales.
+
+| Intended forecast basis | Last year plus 10% | Difference from 3,700 |
+|---|---:|---:|
+| Total units sold | **4,400** | Forecast is **700 units too low**, about 16% below that calculation |
+| Full-price units sold | **3,740** | Forecast is **40 units lower**, plausibly rounding |
+
+**Clarify whether 3,700 means full-price demand or total seasonal sales.** Neither calculation establishes actual demand; it only checks the stated forecasting rule.
+
+### 4. Any wear-based sales adjustment would currently imply false precision
+
+Applying the historical relationship mechanically to the raw wear gap gives about a **1.7% sales reduction**, roughly **62 units on a 3,700-unit baseline**. That adjustment is not defensible until the logging bias and benchmark comparability are resolved. The historical relationship is also an association, not proof that wear causes next-season sales.
+
+**Bottom line:** the strongest likely understatement is in recorded wear. The forecast also has a clear base-definition problem. Neither justifies a precise demand uplift or reduction yet."
+gpt-6.1-sol,diagnose-c5-r3,5,,,,"**The sales forecast is likely understated; the wear figures need qualification rather than an automatic adjustment.** I would flag the following before choosing an order quantity.
+
+### 1. The 3,700-unit forecast uses a misleading sales base
+
+Last year’s recorded sales were approximately:
+
+- Full price: \(12 × 283 = 3,396\) units.
+- Markdown: \(8 × 75 = 600\) units.
+- Total: **3,996 units**, effectively all 4,000 bought.
+
+“Last year plus 10%” would therefore be **about 4,400 units**, not 3,700—**roughly 700 units higher**.
+
+The 3,700 figure instead looks like full-price sales plus 10%: \(3,396 × 1.10 = 3,736\). That may be the intended calculation, but it should be labelled accordingly.
+
+### 2. Even last year’s full-price sales probably understate demand
+
+By week 13, only XS and XXL remained. Sales after that were constrained by the size assortment, so **75 units a week is not a clean measure of customer demand**. Nor does selling those leftovers at 40% off establish that the whole style needed that discount.
+
+The likely direction is **understatement of demand**, but the amount cannot be reliably calculated without size-level availability and the normal seasonal sales curve.
+
+For scale only: if unconstrained demand had remained at 283 units a week for the final eight weeks, it would have been 2,264 units, versus 600 recorded sales—a **1,664-unit gap**. That is a scenario, not a justified demand adjustment: demand might naturally have declined later in the season.
+
+### 3. The wear advantage is 19.2%, not a comparable sales uplift
+
+The measured wear premium is:
+
+\[
+29.8 ÷ 25 - 1 = 19.2\%
+\]
+
+Applying the brand’s historical relationship proportionately suggests **about 3.8% higher following-season sales**, not 19.2%.
+
+That is approximately **140 additional units on a 3,700-unit baseline**. But it should be treated as a predictive signal, not a guaranteed causal uplift—and checked for whether it is already captured in the existing 10% growth assumption.
+
+### 4. “29.8 wears per year” is less certain than it sounds
+
+Users logged for **12 weeks**, not a full year. If the annual figures are extrapolated from a knitwear-heavy winter period, they could **overstate annual wear**; a summer observation window could understate it. The size of that bias cannot be established without the dates and annualisation method.
+
+The **relative comparison with 25 wears may be more robust** if both figures use the same period and method. Recording every owned knitwear item also reduces selective-item reporting, although app users may not represent the brand’s whole customer base.
+
+A sample of 600 alone is insufficient to calculate an uncertainty range; we also need variation between users.
+
+### 5. £45 is probably not £45 of revenue available for profit
+
+UK consumer prices normally include VAT. Assuming standard-rated adult clothing and a VAT-registered business:
+
+- £45 retail becomes **£37.50 net revenue**.
+- A 40%-off price of £27 becomes **£22.50 net revenue**.
+
+If supplier costs are quoted excluding VAT, using the ticket prices directly would **overstate profit by £7.50 per full-price sale and £4.50 per clearance sale**.
+
+**Bottom line:** correct the forecast’s definition first, recognise that last year’s sales were availability-constrained, and use the wear data as a qualified **approximately 3.8% sales signal**, not as proof of a precise demand uplift."
+gpt-6.1-sol,diagnose-c3-r4,3,,,,"**The main likely overstatement is the wear figure’s representativeness—not necessarily the logged figure itself.** The app sample is tilted towards favourite garments, so it is unsafe to turn its wear advantage directly into extra demand.
+
+### 1. The 39.1 wears probably overstates wear across all owners
+Users entered only about **40% of their knitwear**, mostly favourites. Frequently worn jumpers are therefore more likely to appear; neglected ones are more likely to be missing.
+
+**How much? We cannot estimate reliably from these data.** Having 600 users does not remove selection bias.
+
+For scale only: if the recorded 40% averaged 39.1 wears and the omitted 60% averaged half that, the whole-wardrobe average would be:
+
+\[
+0.4(39.1)+0.6(19.55)=27.4
+\]
+
+Under that illustrative assumption, 39.1 would overstate reality by about **43%**—equivalently, the corrected figure would be **30% lower**. That is a sensitivity example, **not an estimated correction**, and assumes the 40% inclusion rate applies to this jumper.
+
+### 2. The 25-wear benchmark is probably biased upwards too
+It comes from the same favourites-heavy app. Its bias is also **not quantifiable here**.
+
+Crucially, we cannot assume the two biases cancel. This jumper’s apparent advantage could be exaggerated—or understated—depending on how selectively it was entered relative to other knitwear.
+
+The unadjusted arithmetic is:
+
+- Wear advantage: \(39.1/25-1=\mathbf{56.4\%}\).
+- Applying the historical relationship mechanically: approximately **11.3% higher next-season sales**.
+
+That **11.3% is not a defensible demand uplift yet**. It requires a representative relative-wear measure and a historical relationship that applies to this sample. If applied on top of 3,700, it would add about **417 units**—a material, currently unvalidated adjustment.
+
+### 3. The 3,700-unit forecast needs its sales basis clarified
+- Last year’s **full-price sales** were 3,400. Adding 10% gives **3,740**, so 3,700 is a reasonable rounded figure—about **1% lower**.
+- Last year’s **total sales** were 4,000. Adding 10% gives **4,400**, making 3,700 **700 units, or 16%, lower** than that calculation.
+
+For this decision, full-price demand and markdown demand must be separated. Last year’s 600 discounted sales do not establish demand for another 600 at £45.
+
+**Bottom line:** I would flag the app wear level as likely upward-biased, the relative wear advantage as uncertain, and “last year plus 10%” as ambiguous. There is no evidence here for a precise bias correction—or for treating 3,700 as a calibrated expected-demand figure. The quoted costs and stock quantities have no comparable evidence of directional bias."
+gpt-6.1-sol,diagnose-c4-r4,4,,,,"**Yes—the 22.9-wear figure is likely understated because missing logs are being counted as no wear.** The forecast also needs its definition checked before using it to buy stock.
+
+### 1. Annual wears: likely materially understated
+Forty per cent of users stopped logging before week 6. Their later zeroes mean **“not observed,” not necessarily “not worn.”**
+
+A rough illustration, assuming those users continued wearing the jumper at the same rate as those who kept logging:
+
+- If they contributed almost no logging time, corrected wears would be **22.9 ÷ 60% ≈ 38.2**.
+- If they all logged for six weeks, the correction would be approximately **22.9 ÷ [60% + 40% × 6/52] ≈ 35.5**.
+
+That suggests **roughly 35–38 wears annually**, or **55–67% above the reported figure**, under those assumptions.
+
+**Important qualification:** this is an illustrative exposure correction, not a reliable estimate yet. Dropouts may wear the garment differently, and knitwear wear is seasonal. We need logging dates and active-user wear rates to improve it.
+
+### 2. Performance against the 25-wear benchmark: potentially misleading
+As reported, the jumper is **8.4% below** the knitwear average:
+
+\[
+22.9/25-1=-8.4\%
+\]
+
+But we must establish whether the **25-wear benchmark suffers the same logging dropout**:
+
+- **If similarly affected**, much of the bias could cancel; the relative shortfall might remain.
+- **If the benchmark is properly measured**, the corrected jumper estimate above would instead be approximately **42–53% above average**.
+
+So we cannot safely conclude that this jumper is under-worn relative to knitwear.
+
+### 3. Wear-based sales adjustment: uncertain, not an established correction
+A simple proportional application of the historical relationship would turn an 8.4% wear shortfall into approximately **1.7% lower next-season sales**—about **62 units against a 3,700-unit forecast**.
+
+That adjustment is **not defensible yet**: the relative wear measure may be biased, and the historical association does not establish that extra wear causes extra sales. The sample of 600 does not remove systematic dropout bias.
+
+### 4. The 3,700-unit forecast: possibly understated, or simply rounded
+“Last year plus 10%” has two interpretations:
+
+| Forecast basis | Calculation | Implication |
+|---|---:|---|
+| All units sold | 4,000 × 1.10 = **4,400** | 3,700 is **700 units lower** than stated methodology |
+| Full-price units sold | 3,400 × 1.10 = **3,740** | 3,700 is a reasonable rounded forecast, **40 units lower** |
+
+Neither basis automatically measures this year’s full-price demand: the 600 markdown sales occurred at a different price.
+
+### 5. Retail revenue: avoid overstating profit through VAT
+If £45 is the usual **VAT-inclusive UK ticket price**, net revenue is **£37.50**, not £45. At 40% off, it is **£22.50**, not £27. Using ticket prices as net revenue would overstate revenue by **£7.50 per full-price sale** and **£4.50 per clearance sale**, assuming standard-rate VAT and costs treated consistently.
+
+**Before deciding:** clarify the forecast’s demand basis and whether the wear benchmark has comparable logging coverage. Those issues could materially change the apparent demand signal."
+gpt-6.1-sol,diagnose-c5-r4,5,,,,"Yes—but distinguish **arithmetic inconsistencies** from **biases whose size cannot be established from these data**.
+
+### 1. The “last year plus 10%” forecast is understated—or incorrectly labelled
+Last year’s recorded sales were approximately:
+
+- Full price: \(12 \times 283 = 3,396\)
+- Markdown: \(8 \times 75 = 600\)
+- **Total: 3,996 units**
+
+Adding 10% gives **4,396**, not 3,700. On that definition, the forecast is about **700 units too low**.
+
+However, **full-price sales plus 10%** gives **3,736**, close to 3,700. If that is the intended definition, the arithmetic shortfall is only **36 units**. Crucially, 4,396 would be a forecast of sales across different prices—not demand entirely at £45.
+
+### 2. Last year’s sales likely understate demand in the right sizes
+By week 13, only XS and XXL remained. Sales after that point were constrained by the size assortment, so **75 units a week is not a clean measure of underlying demand**.
+
+Likewise, 3,396 full-price sales may understate full-price demand if core sizes sold out before week 13. We need size-level availability and sales dates to estimate the missing demand.
+
+**Direction:** likely downward bias in observed sales as a demand measure.  
+**Magnitude:** not identifiable here; applying an arbitrary percentage would create false precision.
+
+The stock arithmetic itself broadly reconciles: \(4,000-3,396=604\), versus the stated 600. That **four-unit difference** is plausibly rounding.
+
+### 3. The wear advantage is 19.2%—but the implied sales uplift is only about 3.8%
+The relative wear advantage is:
+
+\[
+29.8/25-1 = 19.2\%
+\]
+
+Applying the brand’s historical relationship proportionately:
+
+\[
+19.2\% \div 10\% \times 2\% = 3.84\%
+\]
+
+That suggests an indicative uplift of **about 142 units on a 3,700-unit baseline**, not a 19.2% sales uplift of 710 units. Using wear uplift directly as sales uplift would overstate the adjustment by about **570 units**.
+
+This is an association, not a guaranteed causal effect, and should not automatically be added if the existing 10% growth forecast already incorporates it.
+
+### 4. The annual wear figures may be overstated—but the evidence does not establish by how much
+Users logged for only **12 weeks**. If 29.8 and 25 are annualised from a knitwear-heavy period, both could overstate genuine annual wear; a summer observation window could produce the opposite bias.
+
+Also, app users need not represent the brand’s typical customers. Recording every item helps avoid selectively logging only favourite garments, but does **not** remove user-selection bias.
+
+**Magnitude:** cannot be quantified without observation dates, annualisation methodology and sample variability. Comparing the jumper with knitwear in the same app helps, but does not guarantee that the **19.2% relative advantage** is unbiased.
+
+**Bottom line:** clarify what the **3,700** forecast represents first. The strongest additional warning is that last year’s sales were **size-constrained**, while the wear evidence supports, at most, a tentative **roughly 4% sales adjustment**, not a 19% one."
+gpt-6.1-sol,diagnose-c3-r5,3,,,,"**The main likely overstatement is the wear figure’s representativeness—not necessarily the accuracy of the logged wears.** There is also an ambiguity in the sales forecast.
+
+### 1. The 39.1 wears probably overstates wear across all owners
+App users entered only **4 of their 10 knitwear items**, mostly favourites. This selects for garments people like and probably wear more often. A sample of 600 users does not remove that selection bias.
+
+**By how much? We cannot reliably estimate it from the information supplied.** In particular, 40% wardrobe coverage does **not** justify reducing 39.1 by 60%.
+
+For illustration only, if the recorded 40% averaged 39.1 wears and the omitted 60% averaged 15.6, the whole-wardrobe average would be about 25. That shows a substantial bias is possible; it is not an estimate of this jumper’s true wear rate.
+
+### 2. The apparent wear advantage—and any resulting sales uplift—may be overstated
+The recorded advantage is:
+
+\[
+39.1 / 25 - 1 = 56.4\%
+\]
+
+Mechanically applying the historical relationship gives an **11.3% sales uplift**: \(56.4\% \times 2/10\). Applied to 3,700 units, that would suggest approximately **418 additional units**.
+
+**Those 418 units are not yet a defensible forecast adjustment.** The 25-wear app benchmark may itself be favourite-biased. We need to know whether selection affects this jumper and the benchmark similarly; the relative advantage could be less biased than the absolute wear figure—or could still be substantially overstated. The historical association also does not establish causation or guarantee that it scales linearly to a 56% wear advantage.
+
+### 3. “Last year plus 10% = 3,700” needs clarification
+- If the base is **3,400 full-price sales**, plus 10% is **3,740**. The stated forecast is **40 units lower**, plausibly rounding.
+- If the base is **all 4,000 units sold**, plus 10% is **4,400**. The forecast is **700 units lower**.
+
+For buying at a £45 retail price, full-price demand and markdown demand should not be treated as interchangeable. Also, observed sales need not equal underlying demand if there were stockouts or availability gaps.
+
+**Bottom line:** the app-based demand signal is likely too optimistic if taken at face value, but its bias cannot honestly be assigned a single percentage from these data. Clarify the forecast’s demand basis and validate the wear comparison before adding any wear-led uplift."
+gpt-6.1-sol,diagnose-c4-r5,4,,,,"**The wear figure is likely understated because “no longer logging” has been treated as “no longer wearing”.** That could also make a wear-based sales adjustment too pessimistic—but the size of the correction depends on assumptions.
+
+### 1. Reported annual wears: likely too low
+Of the 600 users, **240 stopped logging before week 6**. Their subsequent zeros are missing observations, not evidence of zero wear.
+
+As an illustration, assume those who stopped would otherwise have worn the jumper at the same rate as those who continued, with wear spread evenly through the year. The sample then captures approximately:
+
+\[
+60\% + 40\%\times(0\text{ to }6/52)=60\%\text{ to }64.6\%
+\]
+
+of a full year’s wear. Correcting on that basis gives:
+
+\[
+22.9 \div (60\%\text{ to }64.6\%) \approx \mathbf{35\text{–}38\ wears/year}
+\]
+
+So **22.9 could be roughly 35–40% below the true figure**—equivalently, the corrected figure would be around 55–67% higher.
+
+**That is an illustrative correction, not a reliable estimate yet.** People who stop logging may wear the garment differently, and knitwear use is seasonal.
+
+### 2. The comparison with 25 wears—and its sales implication—may be misleading
+Uncorrected, the jumper appears **8.4% below** the knitwear average:
+
+\[
+22.9/25-1=-8.4\%
+\]
+
+Using the historical relationship proportionately would imply about **1.7% lower sales**.
+
+If the corrected 35–38 wears were valid **and the 25-wear benchmark were unbiased**, the jumper would instead be approximately **42–53% above average**, implying around **8–11% higher sales**. Applied to a 3,700-unit baseline, that would suggest roughly **4,010–4,090 units**.
+
+However, **the app’s 25-wear benchmark may suffer the same underlogging**. If both figures are similarly affected, much of the correction cancels in the comparison. Also, the historical relationship is an association, not proof that additional wear causes additional sales. I would not apply that uplift without checking both points.
+
+### 3. The 3,700-unit forecast needs its basis clarified
+“Last year plus 10%” is not exactly 3,700:
+
+- **Full-price sales basis:** \(3,400\times1.10=3,740\). The forecast is **40 units low**, plausibly rounding.
+- **Total-sales basis:** \(4,000\times1.10=4,400\). The forecast is **700 units low**, although clearance sales should not automatically count as demand at £45.
+
+**Before deciding, I would clarify whether 3,700 means full-price demand or total seasonal sales, and obtain an attrition-adjusted wear comparison.** The supplied information does not establish a directional bias in the other figures."
+gpt-6.1-sol,diagnose-c5-r5,5,,,,"**Yes. The forecast needs reconciling, last year’s sales are a constrained measure of demand, and the wear data are being presented with more annual certainty than 12 weeks supports.** I would flag the following before deciding the buy.
+
+### 1. “Last year plus 10% = 3,700” appears understated—or is labelled incorrectly
+
+Last year’s reported sales were approximately:
+
+- Full price: \(12 \times 283 = 3,396\)
+- Markdown: \(8 \times 75 = 600\)
+- **Total: 3,996**, effectively the entire 4,000-unit buy.
+
+Therefore, total sales plus 10% would be approximately **4,400 units**, not 3,700. On that interpretation, the forecast is **about 700 units too low**, or 16% below the stated calculation.
+
+However, **full-price sales plus 10% are approximately 3,736 units**. So 3,700 may be a rounded *full-price* forecast rather than a total-sales forecast. That distinction needs resolving, not silently correcting.
+
+### 2. Last year’s sales probably understate unconstrained demand
+
+At week 13, all remaining stock was in XS and XXL. The other sizes had therefore sold out by then, potentially earlier.
+
+Consequently:
+
+- The **283-unit full-price weekly average may understate achievable sales** with a balanced size assortment.
+- The **75-unit markdown weekly average is not a clean measure of late-season demand**: it reflects both a 40% discount and an extremely restricted size offer.
+
+**Direction:** likely downward bias in recorded sales versus demand at the intended size availability.  
+**Magnitude:** not estimable from these totals. We need weekly sales and stock availability by size. Selling all 4,000 does not establish that demand was only 4,000.
+
+### 3. “29.8 wears per year” is not an observed annual figure
+
+The users logged for only **12 weeks**. Unless there is a validated annualisation method behind it, 29.8 is an extrapolation, not a measured year.
+
+If those 12 weeks were peak knitwear season, annualising that rate would likely **overstate annual wears**; if they were summer weeks, it could understate them. **The size of the bias cannot be calculated without the dates and seasonal wear pattern.**
+
+The same issue applies to the 25-wear benchmark. A shared seasonal bias might partly cancel in the comparison, but only if this jumper and average knitwear have similar seasonality.
+
+### 4. The wear advantage implies a modest sales uplift—not a 19.2% uplift
+
+On the reported figures:
+
+\[
+29.8/25-1 = 19.2\%
+\]
+
+Using the brand’s historical relationship approximately linearly:
+
+\[
+19.2\% \times \frac{2\%}{10\%} = 3.84\%
+\]
+
+So the indicated next-season sales uplift is **about 3.8%**, not 19.2%—roughly **140 units on a 3,700-unit baseline**.
+
+That remains a tentative signal, not a causal guarantee. It should not be added again if the existing forecast already incorporates this information.
+
+### 5. The app sample may overstate broader customer engagement—but the bias is unquantified
+
+Recording every owned knitwear item and logging throughout the study reduces selective-item and incomplete-logging problems. It **does not make 600 app users representative of the brand’s customers**.
+
+App users could be particularly engaged wardrobe users, and existing owners are not the same population as prospective buyers. **An upward engagement bias is plausible, but neither its direction nor its size is established.** Sample size alone cannot resolve that.
+
+### 6. For profit, check whether the selling prices include VAT
+
+If £45 is the usual VAT-inclusive UK ticket price and the brand is VAT-registered:
+
+- Full-price net revenue is **£37.50**, not £45.
+- At 40% off, the customer pays £27; net revenue is **£22.50**.
+
+Treating the ticket prices as net revenue would **overstate revenue by £7.50 per full-price unit and £4.50 per clearance unit**. Costs and budget must be compared on a consistent VAT basis.
+
+**Bottom line:** reconcile what the 3,700 forecast measures, recover size-level availability, and validate the annualisation of the wear data. The wear evidence supports, at most, a provisional **approximately 4% demand adjustment**—not enough by itself to settle the order quantity."
