@@ -113,4 +113,6 @@ The filled tables are `human/answers.csv` and `human/panel_answers.csv`. They ar
 complete a row on a participant's behalf. `human.py import` writes `runs/humans.jsonl`, which `report.py` shows as a
 "Humans" column. There is one human participant (P1), who plays all five workshop roles in turn. Report the
 Humans column as one person, and say who they are and whether they knew the study's purpose.
-The panel rows for P1 were transcribed from the participant's answers in Appendix C of the paper.
+P1 has not answered the workshop panel, so the P1 rows in `human/panel_answers.csv` are blank.
+`human/panel_answers_example.csv` holds the modelled example from Table C4 of the paper (participant `EXAMPLE`).
+It shows the format. It is not collected data, and `human.py import` does not read it.

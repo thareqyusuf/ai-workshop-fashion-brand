@@ -21,7 +21,7 @@ def load():
             if line.strip():
                 r = json.loads(line)
                 if r["kind"] in ("decide", "control"):   # rescore, so ground-truth settings can change after a run
-                    r["score"] = X.score_decide(r["condition"], r["parsed"])
+                    r["score"] = X.score_decide(r["condition"], r["parsed"], r.get("reply"))
                 recs.append(r)
     return recs
 

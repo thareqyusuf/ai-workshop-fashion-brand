@@ -68,11 +68,45 @@ def parse_panel(text):
     return out
 
 
-def score_decide(condition, p):
-    """Gates, expected profit gap, overproduction, lost sales, calibration, and the human-reference patterns."""
+_STOCK_STATED = (
+    r"(\d[\d,]*)\s*(?:units?\s*)?(?:of\s+stock\s+)?(?:already\s+|currently\s+)?(?:in|on)[\s-]hand",   # "the 150 in hand"
+    r"stock\s+(?:in|on)[\s-]hand\s*(?:of|is|=|:|at)?\s*\(?(\d[\d,]*)",                                # "Stock in hand: 150"
+)
+
+
+def reply_gates(buy, reply):
+    """The two gates that need the reply text. They catch a planner whose own figures contradict the brief.
+
+    Stock on hand: if the reply states a stock-in-hand figure, one of them must be the brief's figure.
+    Price tiers:   if the reply prices its own buy ("4,000 at £14.00"), one of those unit costs must be
+                   the cost of the tier the buy falls in.
+    Both are conservative: a reply that never states the figure passes, and so does an empty reply.
+    """
+    failed = []
+    if not reply or buy is None:
+        return failed
+    stock = [int(n.replace(",", "")) for pat in _STOCK_STATED for n in re.findall(pat, reply, re.I)]
+    if stock and C.STOCK_IN_HAND not in stock:
+        failed.append("stock on hand misstated")
+    # "<buy> at £<unit cost>". Skips comparisons ("more than 4,000 at £13.20") and order totals ("4,000 at £56,000").
+    pat = (r"((?:more than|less than|fewer than|at least|up to|over|above|beyond|below|under|past)\s+)?(?<![\d,])"
+           + f"(?:{buy:,}|{buy})"
+           + r"\s*(?:units?\s*)?(?:at|@|x|×|\*)\s*(?:the\s+)?£\s*(\d{1,2}(?:\.\d{1,2})?)(?!\d|,\d|\.\d|k)")
+    priced = [float(m.group(2)) for m in re.finditer(pat, reply, re.I) if not m.group(1)]
+    if priced and all(abs(x - S.unit_cost(buy)) > 0.005 for x in priced):
+        failed.append("wrong price tier")
+    return failed
+
+
+def score_decide(condition, p, reply=None):
+    """Gates, expected profit gap, overproduction, lost sales, calibration, and the human-reference patterns.
+
+    Four gates: minimum order and budget (simulator.gates, from the number), stock on hand and price tiers
+    (reply_gates, from the reply text). Without the reply text only the first two are run.
+    """
     buy = p.get("buy")
     best_q, best_p = S.best_buy(condition)
-    s = {"condition": condition, "buy": buy, "best_buy": best_q, "gates_failed": S.gates(buy)}
+    s = {"condition": condition, "buy": buy, "best_buy": best_q, "gates_failed": S.gates(buy) + reply_gates(buy, reply)}
     s["feasible"] = not s["gates_failed"]
     if s["feasible"]:
         o = S.outcome(buy, condition)

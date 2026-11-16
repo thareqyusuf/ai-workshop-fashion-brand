@@ -1,6 +1,6 @@
 participant,role,d1_A,d1_B,d1_confidence,d1_reason,d2_A,d2_B,d2_confidence,trust_more_less_same,d2_reason
-P1,merchandiser,6500,2400,4,"A has a strong full-price history. B left 15% behind, cut it to get back inside budget.",6800,2000,4,same,"No different. It says the numbers are too high, but the gap between A and B is huge either way."
-P1,buyer,6000,3200,3,Newness drives traffic. The cardigan was the hero of the last year sales.,6000,3000,3,less,"Less. If the people logging are into sustainability, of course they wear the plain jumper more. That's not my customer for the cardigan."
-P1,supplier,,,,"Keep A at 5,000 or more or your unit cost goes up 11%. B under 3,000 means dropping a colour.",,,,,Unchanged. Not relevant to my price.
-P1,head,6500,2000,3,B's markdown plus residue is 45% of the buy not sold at full price. I'd cut it.,6500,1800,4,more,"More. If someone tells me what's wrong with their data, I believe the rest of it."
-P1,sustainability,6000,1500,2,Move volume from the item people drop to the one they keep.,6200,1500,3,more,"More, but I'm worried the buyer will use it to dismiss everything."
+P1,merchandiser,,,,,,,,,
+P1,buyer,,,,,,,,,
+P1,supplier,,,,,,,,,
+P1,head,,,,,,,,,
+P1,sustainability,,,,,,,,,

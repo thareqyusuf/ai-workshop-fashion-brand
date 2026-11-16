@@ -40,7 +40,7 @@ def decide_conversation(provider, condition, with_ladder=True, with_control=Fals
     reply = models.chat(provider, msgs, P.SYSTEM)
     msgs.append({"role": "assistant", "content": reply})
     parsed = X.parse_decide(reply)
-    score = X.score_decide(condition, parsed)
+    score = X.score_decide(condition, parsed, reply)
     rec.update(reply=reply, parsed=parsed, score=score)
     if verbose:
         say(f"MODEL REPLY  ({rec['model']})", reply)

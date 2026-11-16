@@ -134,7 +134,7 @@ def cmd_import(_):
                       "wears": wears if wears[0] is not None else None, "parsed": True}
             rec = {"kind": "decide", "provider": "humans", "model": "Humans", "condition": c,
                    "key": f"decide-c{c}-{r['participant']}", "participant": r["participant"],
-                   "reply": r["evidence_and_reasoning"], "parsed": parsed, "score": X.score_decide(c, parsed)}
+                   "reply": r["evidence_and_reasoning"], "parsed": parsed, "score": X.score_decide(c, parsed, r["evidence_and_reasoning"])}
             buys = [_i(r[f"ladder_T{i}_buy"]) for i in range(1, 5)]
             if any(b is not None for b in buys):
                 rec["ladder"] = {"target": P.ladder_target(c, buy), "turns": [{"turn": i + 1, "buy": b} for i, b in enumerate(buys)],

@@ -1,6 +1,15 @@
 """Rule-based coding of four of the six reasoning codes, written and run by Claude (an LLM), not by human coders.
 
   python code_reasoning.py                 # reads results/to_code.csv, writes results/reasoning_codes_claude.csv
+  python code_reasoning.py --rules-only    # the rules alone, no adjudication: writes results/reasoning_codes_rules_only.csv
+  python code_reasoning.py --review        # also print the cases the rules flagged
+
+LLM use. Read this with the LLM Usage Statement in the paper.
+  The rules     are code, drafted with Claude like the rest of the repository. What they print is a script's
+                output, not a language model's assertion. --rules-only gives exactly that.
+  The OVERRIDES at the bottom of this file are a language model's judgement: Claude read the text a rule had
+                flagged and changed the code. The default run applies them, and Table A2 of the paper reports
+                the default run. The paper has to say so wherever it reports those numbers.
 
 Codes (definitions in Table A3 of the paper) and the rule used for each:
   wear_data_used        conditions 2-6. The evidence table has a row whose figure cell holds the logged wear figure,
@@ -23,8 +32,10 @@ import sys
 import prompts as P
 
 csv.field_size_limit(10 ** 9)
-SRC = sys.argv[1] if len(sys.argv) > 1 else "results/to_code.csv"
-OUT = sys.argv[2] if len(sys.argv) > 2 else "results/reasoning_codes_claude.csv"
+ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
+RULES_ONLY = "--rules-only" in sys.argv
+SRC = ARGS[0] if ARGS else "results/to_code.csv"
+OUT = ARGS[1] if len(ARGS) > 1 else ("results/reasoning_codes_rules_only.csv" if RULES_ONLY else "results/reasoning_codes_claude.csv")
 LOGGED = {2: "29.8", 3: "39.1", 4: "22.9", 5: "29.8", 6: "29.8"}
 FLAW = {3: r"favourit|favorit|self-?select|selection|selective|4 of (their |the )?10|four of (their |the )?ten|4 in 10|subset",
         4: r"stopped logging|stop(s)? logging|drop-?off|dropp?ed out|attrition|lapsed|before week 6|truncat|censor|missing (logs|wears|data)|incomplete",
@@ -113,9 +124,14 @@ def code(row):
 def main():
     rows = list(csv.DictReader(open(SRC, encoding="utf-8")))
     coded = [code(r) for r in rows]
-    for r in coded:                                   # adjudications made by reading the flagged text
-        for k, v in OVERRIDES.get((r["model"], r["key"]), {}).items():
-            r[k] = v
+    changed = 0
+    if not RULES_ONLY:
+        for r in coded:                               # adjudications made by Claude after reading the flagged text
+            for k, v in OVERRIDES.get((r["model"], r["key"]), {}).items():
+                changed += int(r[k] != v)
+                r[k] = v
+    print("Rules only, no adjudication." if RULES_ONLY else
+          f"Rules, with {changed} values changed by Claude's adjudication (an LLM). --rules-only gives the rules alone.")
     cols = ["model", "key", "condition", "traceable", "reliable_information", "wear_data_used", "trade_off"]
     with open(OUT, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore"); w.writeheader(); w.writerows(coded)

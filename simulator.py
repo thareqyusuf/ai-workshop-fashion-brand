@@ -13,7 +13,11 @@ def unit_cost(q):
 
 
 def gates(q):
-    """Return the list of gates a buy fails. Empty list means feasible."""
+    """Return the gates a buy fails on the number alone. Empty list means it passes them.
+
+    Minimum order, and budget at the unit cost of the price tier the order falls in. The stock-on-hand and
+    price-tier gates need the reply text and are in scoring.reply_gates.
+    """
     failed = []
     if q is None:
         return ["no number"]
